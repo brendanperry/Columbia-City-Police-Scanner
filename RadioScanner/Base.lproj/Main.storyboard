@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LyE-xD-Dck">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Live Stream-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LiveStreamViewController" customModule="RadioScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-QY-6Dj" userLabel="PlayPauseButton">
+                                <rect key="frame" x="100" y="284.66666666666669" width="193" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="523-Wj-V6Q"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="200" scale="large" weight="thin"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="playPauseButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LbM-E8-zI4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Live Stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-Bh-E8o">
+                                <rect key="frame" x="125" y="554.66666666666663" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brought to you by scanwc.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyv-bj-lFT">
+                                <rect key="frame" x="103.33333333333333" y="743.33333333333337" width="186.33333333333337" height="15.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yyv-bj-lFT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="1Ki-Uh-nVg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Oxj-QY-6Dj" secondAttribute="trailing" constant="100" id="5Lb-r6-22a"/>
+                            <constraint firstItem="g7S-Bh-E8o" firstAttribute="top" secondItem="Oxj-QY-6Dj" secondAttribute="bottom" constant="70" id="Roy-nb-5CI"/>
+                            <constraint firstItem="g7S-Bh-E8o" firstAttribute="centerX" secondItem="Yyv-bj-lFT" secondAttribute="centerX" id="SAo-k4-z7e"/>
+                            <constraint firstItem="Oxj-QY-6Dj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bqj-Zc-Wot"/>
+                            <constraint firstItem="Oxj-QY-6Dj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="cLL-k1-IkF"/>
+                            <constraint firstItem="Yyv-bj-lFT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uhg-FK-C4J"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Live Stream" image="radio" catalog="system" selectedImage="radio.fill" id="iDc-gB-gwD"/>
+                    <connections>
+                        <outlet property="playPauseButton" destination="Oxj-QY-6Dj" id="Fn6-RA-pas"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-604" y="777"/>
+        </scene>
+        <!--Archives-->
+        <scene sceneID="ddT-Ii-40f">
+            <objects>
+                <viewController id="H4o-sK-c4y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PgG-ip-dQh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eu8-1u-0wb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Archives" image="archivebox" catalog="system" selectedImage="archivebox.fill" id="Oj9-oP-Htr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5JC-Qr-6Qa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="769"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5lz-Xc-3z2">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LyE-xD-Dck" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Red-7O-e0N">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <tabBarAppearance key="standardAppearance"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CcH-SQ-Lg9"/>
+                        <segue destination="H4o-sK-c4y" kind="relationship" relationship="viewControllers" id="EW2-j7-04W"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odb-pO-4jF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.51908396946564" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="archivebox" catalog="system" width="128" height="107"/>
+        <image name="archivebox.fill" catalog="system" width="128" height="107"/>
+        <image name="play.circle" catalog="system" width="128" height="123"/>
+        <image name="radio" catalog="system" width="128" height="115"/>
+        <image name="radio.fill" catalog="system" width="128" height="115"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
