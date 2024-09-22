@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60431462CA0955300F981D5 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60431452CA0954D00F981D5 /* URLRequest+Extensions.swift */; };
+		C60EEB4A2C9E63CE00721F3B /* CCPoliceActivityLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EEB492C9E63C400721F3B /* CCPoliceActivityLog.swift */; };
 		C6562E802C9C8D2000B7B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6562E772C9C8D2000B7B8E5 /* Assets.xcassets */; };
 		C6562E822C9C8D2000B7B8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6562E7A2C9C8D2000B7B8E5 /* LaunchScreen.storyboard */; };
 		C6562E832C9C8D2000B7B8E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6562E7C2C9C8D2000B7B8E5 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		44E61AD3E7F3C1521EA78CC8 /* Pods-RadioScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioScanner.debug.xcconfig"; path = "Target Support Files/Pods-RadioScanner/Pods-RadioScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		AA733AE1576910583046070A /* Pods_RadioScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CB7CEEFF922103A7E99C28 /* Pods-RadioScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioScanner.release.xcconfig"; path = "Target Support Files/Pods-RadioScanner/Pods-RadioScanner.release.xcconfig"; sourceTree = "<group>"; };
+		C60431452CA0954D00F981D5 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		C60EEB492C9E63C400721F3B /* CCPoliceActivityLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCPoliceActivityLog.swift; sourceTree = "<group>"; };
 		C6562E2E2C9C7F3300B7B8E5 /* RadioScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6562E762C9C8D2000B7B8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6562E772C9C8D2000B7B8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		C6562E7F2C9C8D2000B7B8E5 /* RadioScanner */ = {
 			isa = PBXGroup;
 			children = (
+				C60431452CA0954D00F981D5 /* URLRequest+Extensions.swift */,
+				C60EEB492C9E63C400721F3B /* CCPoliceActivityLog.swift */,
 				C60EEB452C9D1E1100721F3B /* LiveStream */,
 				C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */,
 				C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */,
@@ -224,10 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60EEB4A2C9E63CE00721F3B /* CCPoliceActivityLog.swift in Sources */,
 				C6562E842C9C8D2000B7B8E5 /* AppDelegate.swift in Sources */,
 				C6D20F172C9D0C3C00553B11 /* NowPlayingManager.swift in Sources */,
 				C6D20F192C9D0D9C00553B11 /* AudioSessionManager.swift in Sources */,
 				C6562E852C9C8D2000B7B8E5 /* SceneDelegate.swift in Sources */,
+				C60431462CA0955300F981D5 /* URLRequest+Extensions.swift in Sources */,
 				C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */,
 				C6562E862C9C8D2000B7B8E5 /* LiveStreamViewController.swift in Sources */,
 			);
@@ -272,7 +280,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,7 +311,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

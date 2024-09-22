@@ -16,12 +16,11 @@ class LiveStreamViewController: UIViewController {
     let nowPlayingManager = NowPlayingManager()
     let audioSessionManger = AudioSessionManager()
     var remoteCommandCenterManager: RemoteCommandCenterManager?
+    let url = URL(string: "https://streams.textmeout.com:8443/stream")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://streams.textmeout.com:8443/stream")!
-        videoPlayer.media = VLCMedia(url: url)
         remoteCommandCenterManager = RemoteCommandCenterManager(pauseAudio: {
             self.pauseLiveStream()
         }, playAudio: {
@@ -39,13 +38,14 @@ class LiveStreamViewController: UIViewController {
     
     private func pauseLiveStream() {
         playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
-        videoPlayer.pause()
+        videoPlayer.stop()
         audioSessionManger.audioStopped()
         nowPlayingManager.removeNowPlaying()
     }
     
     private func playLiveStream() {
         playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        videoPlayer.media = VLCMedia(url: url)
         videoPlayer.play()
         audioSessionManger.setLiveStreamAudio()
         nowPlayingManager.setNowPlayingInfoForLiveStream()

@@ -10,10 +10,19 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.beginReceivingRemoteControlEvents()
+        
+        // 1MB in memory cache, 500MB disk cache
+        // Bumping this cache so significantly to reduce server load, some of these audio clips are around 3mb
+        URLCache.shared = URLCache(memoryCapacity: 1000000 * 1, diskCapacity: 1000000 * 500)
+        
+        let logger = CCPoliceActivityLog()
+        
+        Task {
+            try? await logger.getLatestActivity()
+        }
+        
         return true
     }
 

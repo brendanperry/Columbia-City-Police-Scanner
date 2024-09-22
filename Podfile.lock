@@ -1,16 +1,20 @@
 PODS:
   - MobileVLCKit (3.3.17)
+  - SwiftSoup (2.7.3)
 
 DEPENDENCIES:
   - MobileVLCKit (~> 3.3.0)
+  - SwiftSoup
 
 SPEC REPOS:
   trunk:
     - MobileVLCKit
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   MobileVLCKit: c5dd1b0ae933dc9c2348099840e753496dcdd908
+  SwiftSoup: e3849c3293b1efee9cf892f91f6ae5c22bfeb5f7
 
-PODFILE CHECKSUM: 3a4a3e4c174e873deb0a409f8e78b6357c1dda41
+PODFILE CHECKSUM: e1c530e19679c070552b81acf5e429a5e73cf979
 
 COCOAPODS: 1.15.2

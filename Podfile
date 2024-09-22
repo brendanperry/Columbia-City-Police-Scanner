@@ -7,5 +7,6 @@ target 'RadioScanner' do
 
   # Pods for RadioScanner
     pod 'MobileVLCKit', '~>3.3.0'
+    pod 'SwiftSoup'
 
 end
