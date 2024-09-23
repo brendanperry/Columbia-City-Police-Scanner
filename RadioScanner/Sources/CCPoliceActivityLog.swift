@@ -8,22 +8,6 @@ import Swift
 import SwiftSoup
 import PDFKit
 
-enum ActivityLocation {
-    case ColumbiaCity
-}
-
-struct ActivityLog {
-    let day: Date
-    let location: ActivityLocation
-    let reportedActivities: [ReportedActivity]
-}
-
-struct ReportedActivity {
-    let timestamp: Date
-    let nature: String
-    let address: String?
-}
-
 struct CCPoliceActivityLog {
     let baseUrl = "https://columbiacitypolice.us"
     let timestampFormatter: DateFormatter
