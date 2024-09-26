@@ -15,8 +15,8 @@
 		C62635F82CA4EA390007967E /* ActivityViewController+ActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62635F72CA4EA220007967E /* ActivityViewController+ActivityList.swift */; };
 		C62635FA2CA4EAD90007967E /* ActivityViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62635F92CA4EAD60007967E /* ActivityViewController+Search.swift */; };
 		C62635FC2CA4EB4D0007967E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62635FB2CA4EB4A0007967E /* Date+Extensions.swift */; };
-		C62635FE2CA4EC100007967E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62635FD2CA4EC0B0007967E /* String+Extensions.swift */; };
 		C62636002CA4ED550007967E /* ActivityViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62635FF2CA4ED450007967E /* ActivityViewController+Map.swift */; };
+		C62636022CA4F2060007967E /* GeocodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62636012CA4F1FE0007967E /* GeocodeManager.swift */; };
 		C6562E802C9C8D2000B7B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6562E772C9C8D2000B7B8E5 /* Assets.xcassets */; };
 		C6562E822C9C8D2000B7B8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6562E7A2C9C8D2000B7B8E5 /* LaunchScreen.storyboard */; };
 		C6562E832C9C8D2000B7B8E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6562E7C2C9C8D2000B7B8E5 /* Main.storyboard */; };
@@ -41,8 +41,8 @@
 		C62635F72CA4EA220007967E /* ActivityViewController+ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+ActivityList.swift"; sourceTree = "<group>"; };
 		C62635F92CA4EAD60007967E /* ActivityViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+Search.swift"; sourceTree = "<group>"; };
 		C62635FB2CA4EB4A0007967E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		C62635FD2CA4EC0B0007967E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		C62635FF2CA4ED450007967E /* ActivityViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+Map.swift"; sourceTree = "<group>"; };
+		C62636012CA4F1FE0007967E /* GeocodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeManager.swift; sourceTree = "<group>"; };
 		C6562E2E2C9C7F3300B7B8E5 /* RadioScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6562E762C9C8D2000B7B8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6562E772C9C8D2000B7B8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +90,7 @@
 		C60431482CA0A79400F981D5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C62636012CA4F1FE0007967E /* GeocodeManager.swift */,
 				C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */,
 				C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */,
 				C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */,
@@ -100,7 +101,6 @@
 		C60431522CA0A8A900F981D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C62635FD2CA4EC0B0007967E /* String+Extensions.swift */,
 				C62635FB2CA4EB4A0007967E /* Date+Extensions.swift */,
 				C62635F12CA261470007967E /* Kotlin+Extensions.swift */,
 				C60431452CA0954D00F981D5 /* URLRequest+Extensions.swift */,
@@ -315,10 +315,10 @@
 				C60431462CA0955300F981D5 /* URLRequest+Extensions.swift in Sources */,
 				C60431542CA0A8EF00F981D5 /* ActivityViewController.swift in Sources */,
 				C62635FC2CA4EB4D0007967E /* Date+Extensions.swift in Sources */,
-				C62635FE2CA4EC100007967E /* String+Extensions.swift in Sources */,
 				C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */,
 				C6562E862C9C8D2000B7B8E5 /* LiveStreamViewController.swift in Sources */,
 				C62635F82CA4EA390007967E /* ActivityViewController+ActivityList.swift in Sources */,
+				C62636022CA4F2060007967E /* GeocodeManager.swift in Sources */,
 				C60431562CA0AB7200F981D5 /* ActivityCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

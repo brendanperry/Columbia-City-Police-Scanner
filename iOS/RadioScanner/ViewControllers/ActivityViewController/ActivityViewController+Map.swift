@@ -9,15 +9,20 @@ import shared
 import MapKit
 
 extension ActivityViewController {
+    
     internal func setMapStartingPoint() {
         mapView.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.15636, longitude: -85.48981), span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+    }
+    
+    internal func clearPlacemarksFromMap() {
+        mapView.removeAnnotations(mapView.annotations)
     }
     
     internal func addPlacemarksToMap(activities: [ReportedActivity]) async {
         for activity in activities {
             guard let streetAddress = activity.address else { continue }
             let fullAddress = streetAddress + " Columbia City, IN 46725"
-            if let coordinates = await fullAddress.addressToCoordinates() {
+            if let coordinates = await geocodeManager.getCoordinatesFromAddress(address: fullAddress) {
                 addPlacemark(coordinate: coordinates, activity: activity)
             }
         }

@@ -19,6 +19,10 @@ extension ActivityViewController: UISearchBarDelegate {
             }
         }
         
+        clearPlacemarksFromMap()
+        Task {
+            await addPlacemarksToMap(activities: filteredReportedActivities)
+        }
         activityCollectionView.reloadData()
     }
 }

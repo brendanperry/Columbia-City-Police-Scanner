@@ -16,6 +16,7 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     let repository = PoliceActivityRepository()
+    let geocodeManager = GeocodeManager()
     var reportedActivities = [ReportedActivity]()
     var filteredReportedActivities = [ReportedActivity]()
 
