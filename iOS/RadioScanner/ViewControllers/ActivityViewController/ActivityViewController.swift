@@ -39,10 +39,9 @@ class ActivityViewController: UIViewController {
             searchBar.text = ""
             reportedActivities = log.reportedActivity
             filteredReportedActivities = reportedActivities
-            
-            await addPlacemarksToMap(activities: filteredReportedActivities)
-            
             activityCollectionView.reloadData()
+
+            await addPlacemarksToMap(activities: filteredReportedActivities)
         } catch {
             print(error.localizedDescription)
             // TODO: Show the error!!

@@ -28,6 +28,7 @@ kotlin {
             //put your multiplatform dependencies here
             implementation("io.ktor:ktor-client-core:$ktor_version")
             implementation("io.ktor:ktor-client-ios:$ktor_version")
+            implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

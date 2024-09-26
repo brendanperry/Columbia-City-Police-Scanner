@@ -15,7 +15,7 @@ class ActivityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nature: UILabel!
     
     func configure(with activity: ReportedActivity) {
-        time.text = "12:00 PM"
+        time.text = activity.displayTime()
         location.text = activity.address
         nature.text = activity.nature
     }

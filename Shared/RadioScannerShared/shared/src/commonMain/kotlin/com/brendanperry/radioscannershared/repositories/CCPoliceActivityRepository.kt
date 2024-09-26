@@ -6,6 +6,7 @@ import com.brendanperry.radioscannershared.models.ReportedActivity
 import com.brendanperry.radioscannershared.sources.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import kotlinx.datetime.LocalDateTime
 
 class CCPoliceActivityRepository : PoliceActivityRepository {
     private val baseUrl = "https://columbiacitypolice.us"
@@ -34,6 +35,10 @@ class CCPoliceActivityRepository : PoliceActivityRepository {
 
             val spaceSplit = line.split(" ", limit = 3)
             val time = spaceSplit[0]
+            val timeSplit = time.split(":")
+            val hour = timeSplit[0]
+            val minute = timeSplit[1]
+            val second = timeSplit[2]
             val date = spaceSplit[1]
 
             val natureAndAddress = spaceSplit[2]
@@ -60,7 +65,9 @@ class CCPoliceActivityRepository : PoliceActivityRepository {
                 location = finalAddress
             }
 
-            val reportedActivity = ReportedActivity(time, date, nature, location)
+            val dateTime =
+                LocalDateTime(year, month, day, hour.toInt(), minute.toInt(), second.toInt(), 0)
+            val reportedActivity = ReportedActivity(time, date, nature, location, dateTime)
             reportedActivities.add(reportedActivity)
         }
 
