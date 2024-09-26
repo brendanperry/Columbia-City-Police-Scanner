@@ -46,6 +46,7 @@ class CCPoliceActivityRepository : PoliceActivityRepository {
                 location = natureAndLocationSplit[1]
                 val pieces = location.split(" ")
 
+                // TODO: needs refactor
                 var finalAddress = ""
                 for (piece in pieces) {
                     if (!piece.contains("XX")) {
