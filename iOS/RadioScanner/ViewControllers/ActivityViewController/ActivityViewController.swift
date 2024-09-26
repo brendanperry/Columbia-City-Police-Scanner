@@ -26,6 +26,7 @@ class ActivityViewController: UIViewController {
         activityCollectionView.dataSource = self
         activityCollectionView.delegate = self
         searchBar.delegate = self
+        mapView.delegate = self
         
         configureDatePicker()
         setMapStartingPoint()
