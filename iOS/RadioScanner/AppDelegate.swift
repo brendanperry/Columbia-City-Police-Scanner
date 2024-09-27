@@ -15,19 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.beginReceivingRemoteControlEvents()
         
-//        Task {
-//            let policeRepo = CCPoliceActivityRepository()
-//            if let result = try? await policeRepo.getActivitiesPdfDataForDate(day: 19, month: 9, year: 24) {
-//                let data = result.toData()
-//                let pdf = PDFDocument(data: data)
-//                if let pdfString = pdf?.string {
-//                    let result = policeRepo.readPdfStringData(data: pdfString, day: 19, month: 9, year: 24)
-//                    
-//                    print(result)
-//                }
-//            }
-//        }
-        
         return true
     }
 

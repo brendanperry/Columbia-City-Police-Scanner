@@ -29,6 +29,8 @@ kotlin {
             implementation("io.ktor:ktor-client-core:$ktor_version")
             implementation("io.ktor:ktor-client-ios:$ktor_version")
             implementation(libs.kotlinx.datetime)
+            implementation(libs.ksoup)
+            implementation(libs.ksoup.network)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

@@ -8,15 +8,15 @@
 import Foundation
 
 extension Date {
-    func yesterday() -> Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: self) ?? Date()
+    func daysAgo(days: Int) -> Date {
+        return Calendar.current.date(byAdding: .day, value: -days, to: self) ?? Date()
     }
     
-    func twoDaysAgo() -> Date {
-        return Calendar.current.date(byAdding: .day, value: -2, to: self) ?? Date()
+    func hoursAgo(hours: Int) -> Date {
+        return Calendar.current.date(byAdding: .hour, value: -hours, to: self) ?? Date()
     }
     
-    func lastMonth() -> Date {
-        return Calendar.current.date(byAdding: .day, value: -31, to: self) ?? Date()
-    }
+//    func cutMinutes() -> Date {
+//        return Calendar.current.start(for: self)
+//    }
 }

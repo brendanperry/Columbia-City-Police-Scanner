@@ -17,7 +17,12 @@ extension ActivityViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.systemBackground : UIColor(named: "CollectionSecondary")
             
             let activity = filteredReportedActivities[indexPath.row]
-            cell.configure(with: activity)
+            cell.configure(with: activity) { [weak self] in
+                if let archiveViewController = self?.tabBarController?.viewControllers?[2] as? ArchiveViewController {
+                    self?.tabBarController?.selectedIndex = 2
+                    archiveViewController.datePicker.date = Date().daysAgo(days: 3)
+                }
+            }
             
             return cell
         }

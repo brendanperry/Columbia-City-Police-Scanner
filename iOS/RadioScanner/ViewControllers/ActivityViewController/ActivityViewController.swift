@@ -52,9 +52,9 @@ class ActivityViewController: UIViewController {
         let today = Date()
         
         datePicker.contentHorizontalAlignment = .center
-        datePicker.date = today.twoDaysAgo()
-        datePicker.maximumDate = today.yesterday()
-        datePicker.minimumDate = today.lastMonth()
+        datePicker.date = today.daysAgo(days: 2)
+        datePicker.maximumDate = today.daysAgo(days: 1)
+        datePicker.minimumDate = today.daysAgo(days: 31)
         dateChanged(datePicker)
     }
     

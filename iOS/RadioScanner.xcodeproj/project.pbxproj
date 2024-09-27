@@ -27,6 +27,9 @@
 		C6D20F172C9D0C3C00553B11 /* NowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */; };
 		C6D20F192C9D0D9C00553B11 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */; };
 		C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */; };
+		C6EF15D52CA63D880080FFB8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D42CA63D880080FFB8 /* TabViewController.swift */; };
+		C6EF15D72CA63EE00080FFB8 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */; };
+		C6EF15D92CA6444D0080FFB8 /* ArchiveViewController+HourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */; };
 		D4E3FB54D3D14CD6FA996BDE /* Pods_RadioScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA733AE1576910583046070A /* Pods_RadioScanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingManager.swift; sourceTree = "<group>"; };
 		C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
 		C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandCenterManager.swift; sourceTree = "<group>"; };
+		C6EF15D42CA63D880080FFB8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
+		C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+HourPicker.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +88,10 @@
 		C60431472CA0A78500F981D5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */,
+				C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */,
 				C62635F62CA4E4930007967E /* ActivityViewController */,
 				C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */,
-				C60431552CA0AB7200F981D5 /* ActivityCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 				C62635FF2CA4ED450007967E /* ActivityViewController+Map.swift */,
 				C62635F92CA4EAD60007967E /* ActivityViewController+Search.swift */,
 				C62635F72CA4EA220007967E /* ActivityViewController+ActivityList.swift */,
+				C60431552CA0AB7200F981D5 /* ActivityCollectionViewCell.swift */,
 				C60431532CA0A8E200F981D5 /* ActivityViewController.swift */,
 			);
 			path = ActivityViewController;
@@ -168,6 +176,7 @@
 				C6562E782C9C8D2000B7B8E5 /* Info.plist */,
 				C6562E7A2C9C8D2000B7B8E5 /* LaunchScreen.storyboard */,
 				C6562E7C2C9C8D2000B7B8E5 /* Main.storyboard */,
+				C6EF15D42CA63D880080FFB8 /* TabViewController.swift */,
 				C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */,
 			);
 			path = RadioScanner;
@@ -313,9 +322,11 @@
 				C62635F42CA39A070007967E /* PoliceActivityRepository.swift in Sources */,
 				C6D20F172C9D0C3C00553B11 /* NowPlayingManager.swift in Sources */,
 				C6D20F192C9D0D9C00553B11 /* AudioSessionManager.swift in Sources */,
+				C6EF15D52CA63D880080FFB8 /* TabViewController.swift in Sources */,
 				C6562E852C9C8D2000B7B8E5 /* SceneDelegate.swift in Sources */,
 				C62635F22CA261500007967E /* Kotlin+Extensions.swift in Sources */,
 				C60431462CA0955300F981D5 /* URLRequest+Extensions.swift in Sources */,
+				C6EF15D92CA6444D0080FFB8 /* ArchiveViewController+HourPicker.swift in Sources */,
 				C60431542CA0A8EF00F981D5 /* ActivityViewController.swift in Sources */,
 				C62635FC2CA4EB4D0007967E /* Date+Extensions.swift in Sources */,
 				C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */,
@@ -323,6 +334,7 @@
 				C62636042CA4FA3F0007967E /* ReportedActivity+Extensions.swift in Sources */,
 				C62635F82CA4EA390007967E /* ActivityViewController+ActivityList.swift in Sources */,
 				C62636022CA4F2060007967E /* GeocodeManager.swift in Sources */,
+				C6EF15D72CA63EE00080FFB8 /* ArchiveViewController.swift in Sources */,
 				C60431562CA0AB7200F981D5 /* ActivityCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
