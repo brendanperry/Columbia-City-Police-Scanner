@@ -29,7 +29,6 @@
 		C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */; };
 		C6EF15D52CA63D880080FFB8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D42CA63D880080FFB8 /* TabViewController.swift */; };
 		C6EF15D72CA63EE00080FFB8 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */; };
-		C6EF15D92CA6444D0080FFB8 /* ArchiveViewController+HourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */; };
 		D4E3FB54D3D14CD6FA996BDE /* Pods_RadioScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA733AE1576910583046070A /* Pods_RadioScanner.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,12 +55,23 @@
 		C6562E7B2C9C8D2000B7B8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
+		C6CEF97D2CC1FD84006D9389 /* ActivityLog.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ActivityLog.kt; sourceTree = "<group>"; };
+		C6CEF97E2CC1FD84006D9389 /* City.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = City.kt; sourceTree = "<group>"; };
+		C6CEF97F2CC1FD84006D9389 /* Recording.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Recording.kt; sourceTree = "<group>"; };
+		C6CEF9802CC1FD84006D9389 /* ReportedActivity.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReportedActivity.kt; sourceTree = "<group>"; };
+		C6CEF9822CC1FD84006D9389 /* CCPoliceActivityRepository.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CCPoliceActivityRepository.kt; sourceTree = "<group>"; };
+		C6CEF9832CC1FD84006D9389 /* PoliceActivityRepository.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PoliceActivityRepository.kt; sourceTree = "<group>"; };
+		C6CEF9842CC1FD84006D9389 /* WhitleyCountyRadioRepository.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhitleyCountyRadioRepository.kt; sourceTree = "<group>"; };
+		C6CEF9862CC1FD84006D9389 /* HttpClient.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = HttpClient.kt; sourceTree = "<group>"; };
+		C6CEF9882CC1FD84006D9389 /* Greeting.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Greeting.kt; sourceTree = "<group>"; };
+		C6CEF9892CC1FD84006D9389 /* Platform.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Platform.kt; sourceTree = "<group>"; };
+		C6CEF98F2CC1FD84006D9389 /* Extensions.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Extensions.ios.kt; sourceTree = "<group>"; };
+		C6CEF9902CC1FD84006D9389 /* Platform.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Platform.ios.kt; sourceTree = "<group>"; };
 		C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingManager.swift; sourceTree = "<group>"; };
 		C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
 		C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandCenterManager.swift; sourceTree = "<group>"; };
 		C6EF15D42CA63D880080FFB8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
-		C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+HourPicker.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +98,8 @@
 		C60431472CA0A78500F981D5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6EF15D82CA644410080FFB8 /* ArchiveViewController+HourPicker.swift */,
-				C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */,
-				C62635F62CA4E4930007967E /* ActivityViewController */,
+				C6EF15DA2CA762510080FFB8 /* Archive */,
+				C62635F62CA4E4930007967E /* Activity */,
 				C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */,
 			);
 			path = ViewControllers;
@@ -126,7 +135,7 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		C62635F62CA4E4930007967E /* ActivityViewController */ = {
+		C62635F62CA4E4930007967E /* Activity */ = {
 			isa = PBXGroup;
 			children = (
 				C62635FF2CA4ED450007967E /* ActivityViewController+Map.swift */,
@@ -135,12 +144,13 @@
 				C60431552CA0AB7200F981D5 /* ActivityCollectionViewCell.swift */,
 				C60431532CA0A8E200F981D5 /* ActivityViewController.swift */,
 			);
-			path = ActivityViewController;
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		C6562E252C9C7F3300B7B8E5 = {
 			isa = PBXGroup;
 			children = (
+				C6CEF97C2CC1FD42006D9389 /* Kotlin Debug */,
 				C6562E7F2C9C8D2000B7B8E5 /* RadioScanner */,
 				C6562E4C2C9C800900B7B8E5 /* Frameworks */,
 				C6562E2F2C9C7F3300B7B8E5 /* Products */,
@@ -180,6 +190,139 @@
 				C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */,
 			);
 			path = RadioScanner;
+			sourceTree = "<group>";
+		};
+		C6CEF97C2CC1FD42006D9389 /* Kotlin Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98E2CC1FD84006D9389 /* commonMain */,
+				C6CEF9952CC1FD84006D9389 /* iosMain */,
+			);
+			path = "Kotlin Debug";
+			sourceTree = "<group>";
+		};
+		C6CEF9812CC1FD84006D9389 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF97D2CC1FD84006D9389 /* ActivityLog.kt */,
+				C6CEF97E2CC1FD84006D9389 /* City.kt */,
+				C6CEF97F2CC1FD84006D9389 /* Recording.kt */,
+				C6CEF9802CC1FD84006D9389 /* ReportedActivity.kt */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		C6CEF9852CC1FD84006D9389 /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9822CC1FD84006D9389 /* CCPoliceActivityRepository.kt */,
+				C6CEF9832CC1FD84006D9389 /* PoliceActivityRepository.kt */,
+				C6CEF9842CC1FD84006D9389 /* WhitleyCountyRadioRepository.kt */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		C6CEF9872CC1FD84006D9389 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9862CC1FD84006D9389 /* HttpClient.kt */,
+			);
+			path = sources;
+			sourceTree = "<group>";
+		};
+		C6CEF98A2CC1FD84006D9389 /* radioscannershared */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9812CC1FD84006D9389 /* models */,
+				C6CEF9852CC1FD84006D9389 /* repositories */,
+				C6CEF9872CC1FD84006D9389 /* sources */,
+				C6CEF9882CC1FD84006D9389 /* Greeting.kt */,
+				C6CEF9892CC1FD84006D9389 /* Platform.kt */,
+			);
+			path = radioscannershared;
+			sourceTree = "<group>";
+		};
+		C6CEF98B2CC1FD84006D9389 /* brendanperry */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98A2CC1FD84006D9389 /* radioscannershared */,
+			);
+			path = brendanperry;
+			sourceTree = "<group>";
+		};
+		C6CEF98C2CC1FD84006D9389 /* com */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98B2CC1FD84006D9389 /* brendanperry */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		C6CEF98D2CC1FD84006D9389 /* kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98C2CC1FD84006D9389 /* com */,
+			);
+			path = kotlin;
+			sourceTree = "<group>";
+		};
+		C6CEF98E2CC1FD84006D9389 /* commonMain */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98D2CC1FD84006D9389 /* kotlin */,
+			);
+			name = commonMain;
+			path = ../Shared/RadioScannerShared/shared/src/commonMain;
+			sourceTree = SOURCE_ROOT;
+		};
+		C6CEF9912CC1FD84006D9389 /* radioscannershared */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF98F2CC1FD84006D9389 /* Extensions.ios.kt */,
+				C6CEF9902CC1FD84006D9389 /* Platform.ios.kt */,
+			);
+			path = radioscannershared;
+			sourceTree = "<group>";
+		};
+		C6CEF9922CC1FD84006D9389 /* brendanperry */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9912CC1FD84006D9389 /* radioscannershared */,
+			);
+			path = brendanperry;
+			sourceTree = "<group>";
+		};
+		C6CEF9932CC1FD84006D9389 /* com */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9922CC1FD84006D9389 /* brendanperry */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		C6CEF9942CC1FD84006D9389 /* kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9932CC1FD84006D9389 /* com */,
+			);
+			path = kotlin;
+			sourceTree = "<group>";
+		};
+		C6CEF9952CC1FD84006D9389 /* iosMain */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEF9942CC1FD84006D9389 /* kotlin */,
+			);
+			name = iosMain;
+			path = ../Shared/RadioScannerShared/shared/src/iosMain;
+			sourceTree = SOURCE_ROOT;
+		};
+		C6EF15DA2CA762510080FFB8 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */,
+			);
+			path = Archive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +469,6 @@
 				C6562E852C9C8D2000B7B8E5 /* SceneDelegate.swift in Sources */,
 				C62635F22CA261500007967E /* Kotlin+Extensions.swift in Sources */,
 				C60431462CA0955300F981D5 /* URLRequest+Extensions.swift in Sources */,
-				C6EF15D92CA6444D0080FFB8 /* ArchiveViewController+HourPicker.swift in Sources */,
 				C60431542CA0A8EF00F981D5 /* ActivityViewController.swift in Sources */,
 				C62635FC2CA4EB4D0007967E /* Date+Extensions.swift in Sources */,
 				C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */,

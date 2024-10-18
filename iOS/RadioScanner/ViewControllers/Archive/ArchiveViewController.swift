@@ -9,16 +9,13 @@ import UIKit
 import shared
 
 class ArchiveViewController: UIViewController {
-    @IBOutlet weak var hourPicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var hourMenu: UIMenu!
     
     let repository = WhitleyCountyRadioRepository()
     
     override func viewDidLoad() {
         configureDatePicker()
-        
-        hourPicker.dataSource = self
-        hourPicker.delegate = self
     }
     
     fileprivate func configureDatePicker() {
@@ -26,19 +23,15 @@ class ArchiveViewController: UIViewController {
         datePicker.date = Date().hoursAgo(hours: 1)
         datePicker.contentHorizontalAlignment = .center
     }
-
-    func selectNewDate(date: Date) {
-//        datePicker.date = date.toNearestHour()
-    }
     
     func loadData() async {
         let components = Calendar.current.dateComponents([.year, .day, .month, .hour], from: datePicker.date)
         
         if let day = components.day, let month = components.month, let year = components.year, let hour = components.hour {
             // TODO: handle error
-            let recordings = try? await repository.getRecordingsFor(day: Int32(day), month: Int32(month), year: Int32(year), hour: Int32(hour))
+            let recordings = try? await repository.getRecordingsFor(day: 16, month: 10, year: 2024, hour: 8)
             
-            print(recordings)
+            print(recordings?.toArray())
         }
         
     }

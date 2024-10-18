@@ -23,14 +23,20 @@ kotlin {
     }
 
     sourceSets {
+        val ktor_version: String by project
+
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-ios:$ktor_version")
+        }
+
+        androidMain.dependencies {
+            implementation("io.ktor:ktor-client-android:$ktor_version")
+        }
         commonMain.dependencies {
-            val ktor_version: String by project
             //put your multiplatform dependencies here
             implementation("io.ktor:ktor-client-core:$ktor_version")
-            implementation("io.ktor:ktor-client-ios:$ktor_version")
             implementation(libs.kotlinx.datetime)
-            implementation(libs.ksoup)
-            implementation(libs.ksoup.network)
+            implementation(libs.fleeksoft.ksoup.lite)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
