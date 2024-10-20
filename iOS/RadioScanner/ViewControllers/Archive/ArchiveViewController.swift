@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import MobileVLCKit
 import shared
 
 class ArchiveViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var hourMenu: UIMenu!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let repository = WhitleyCountyRadioRepository()
+    let videoPlayer = VLCMediaPlayer()
+    
+    var recordings = [Recording]()
     
     override func viewDidLoad() {
         configureDatePicker()
@@ -22,6 +26,8 @@ class ArchiveViewController: UIViewController {
         datePicker.maximumDate = Date()
         datePicker.date = Date().hoursAgo(hours: 1)
         datePicker.contentHorizontalAlignment = .center
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     func loadData() async {
@@ -29,9 +35,10 @@ class ArchiveViewController: UIViewController {
         
         if let day = components.day, let month = components.month, let year = components.year, let hour = components.hour {
             // TODO: handle error
-            let recordings = try? await repository.getRecordingsFor(day: 16, month: 10, year: 2024, hour: 8)
+            let recordings = try? await repository.getRecordingsFor(day: Int32(day), month: Int32(month), year: Int32(year), hour: Int32(hour))
             
-            print(recordings?.toArray())
+            self.recordings = recordings?.toArray() ?? self.recordings
+            collectionView.reloadData()
         }
         
     }

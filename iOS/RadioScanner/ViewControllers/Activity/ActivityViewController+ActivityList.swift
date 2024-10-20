@@ -13,14 +13,23 @@ extension ActivityViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as? ActivityCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath) as? ActivityCollectionViewCell {
             cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.systemBackground : UIColor(named: "CollectionSecondary")
             
             let activity = filteredReportedActivities[indexPath.row]
             cell.configure(with: activity) { [weak self] in
                 if let archiveViewController = self?.tabBarController?.viewControllers?[2] as? ArchiveViewController {
                     self?.tabBarController?.selectedIndex = 2
-                    archiveViewController.datePicker.date = Date().daysAgo(days: 3)
+                    
+                    let selectedDate = self?.datePicker.date ?? Date()
+                    let timeComponents = activity.time.split(separator: ":")
+                    if let hour = Int(timeComponents[0]), let minute = Int(timeComponents[1]) {
+                        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: selectedDate)
+                        archiveViewController.datePicker.date = date ?? selectedDate
+                        Task {
+                            await archiveViewController.loadData()
+                        }
+                    }
                 }
             }
             

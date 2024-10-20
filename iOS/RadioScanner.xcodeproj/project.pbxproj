@@ -24,6 +24,8 @@
 		C6562E842C9C8D2000B7B8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E762C9C8D2000B7B8E5 /* AppDelegate.swift */; };
 		C6562E852C9C8D2000B7B8E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */; };
 		C6562E862C9C8D2000B7B8E5 /* LiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */; };
+		C6CEF9972CC563EF006D9389 /* ArchiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9962CC563E7006D9389 /* ArchiveCollectionViewCell.swift */; };
+		C6CEF9992CC564AE006D9389 /* ArchiveViewController+RecordingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9982CC564A2006D9389 /* ArchiveViewController+RecordingList.swift */; };
 		C6D20F172C9D0C3C00553B11 /* NowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */; };
 		C6D20F192C9D0D9C00553B11 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */; };
 		C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */; };
@@ -67,6 +69,8 @@
 		C6CEF9892CC1FD84006D9389 /* Platform.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Platform.kt; sourceTree = "<group>"; };
 		C6CEF98F2CC1FD84006D9389 /* Extensions.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Extensions.ios.kt; sourceTree = "<group>"; };
 		C6CEF9902CC1FD84006D9389 /* Platform.ios.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Platform.ios.kt; sourceTree = "<group>"; };
+		C6CEF9962CC563E7006D9389 /* ArchiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveCollectionViewCell.swift; sourceTree = "<group>"; };
+		C6CEF9982CC564A2006D9389 /* ArchiveViewController+RecordingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+RecordingList.swift"; sourceTree = "<group>"; };
 		C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingManager.swift; sourceTree = "<group>"; };
 		C6D20F182C9D0D9700553B11 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
 		C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandCenterManager.swift; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 		C6EF15DA2CA762510080FFB8 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
+				C6CEF9982CC564A2006D9389 /* ArchiveViewController+RecordingList.swift */,
+				C6CEF9962CC563E7006D9389 /* ArchiveCollectionViewCell.swift */,
 				C6EF15D62CA63ED70080FFB8 /* ArchiveViewController.swift */,
 			);
 			path = Archive;
@@ -462,7 +468,9 @@
 				C62636002CA4ED550007967E /* ActivityViewController+Map.swift in Sources */,
 				C62635FA2CA4EAD90007967E /* ActivityViewController+Search.swift in Sources */,
 				C6562E842C9C8D2000B7B8E5 /* AppDelegate.swift in Sources */,
+				C6CEF9972CC563EF006D9389 /* ArchiveCollectionViewCell.swift in Sources */,
 				C62635F42CA39A070007967E /* PoliceActivityRepository.swift in Sources */,
+				C6CEF9992CC564AE006D9389 /* ArchiveViewController+RecordingList.swift in Sources */,
 				C6D20F172C9D0C3C00553B11 /* NowPlayingManager.swift in Sources */,
 				C6D20F192C9D0D9C00553B11 /* AudioSessionManager.swift in Sources */,
 				C6EF15D52CA63D880080FFB8 /* TabViewController.swift in Sources */,
