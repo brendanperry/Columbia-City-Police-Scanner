@@ -15,7 +15,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recordingCell", for: indexPath as IndexPath) as? ArchiveCollectionViewCell {
-            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.systemBackground : UIColor(named: "CollectionSecondary")
+            cell.backgroundColor = indexPath.row % 2 != 0 ? UIColor.systemBackground : UIColor(named: "CollectionSecondary")
             
             let recording = recordings[indexPath.row]
             cell.configure(with: recording) { [weak self] id in
