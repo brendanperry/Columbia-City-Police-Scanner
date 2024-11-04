@@ -97,7 +97,7 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kXF-c8-WA9">
-                                <rect key="frame" x="0.0" y="314" width="375" height="304"/>
+                                <rect key="frame" x="0.0" y="314" width="375" height="554"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vZz-kN-96d">
                                     <size key="itemSize" width="375" height="128"/>
@@ -196,21 +196,32 @@
                                     <action selector="dateChanged:" destination="H4o-sK-c4y" eventType="valueChanged" id="9fN-oA-Iak"/>
                                 </connections>
                             </datePicker>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reports were found for this day. Please check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Fl-Dqe">
+                                <rect key="frame" x="25" y="327" width="325" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBs-Qy-Coc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kXF-c8-WA9" firstAttribute="bottom" secondItem="nBs-Qy-Coc" secondAttribute="bottom" constant="250" id="1y9-eW-s7d"/>
+                            <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="IeZ-Fl-Dqe" secondAttribute="trailing" constant="25" id="4L5-wA-qeU"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="top" secondItem="7Ul-1m-a2N" secondAttribute="bottom" id="5i1-Hm-F79"/>
+                            <constraint firstItem="kXF-c8-WA9" firstAttribute="trailing" secondItem="nBs-Qy-Coc" secondAttribute="trailing" id="Ckm-P2-uCg"/>
                             <constraint firstAttribute="trailing" secondItem="7Ul-1m-a2N" secondAttribute="trailing" id="E5d-Q3-X7A"/>
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="lTB-Dw-Eql" secondAttribute="trailing" id="EWK-P3-4xY"/>
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="9t1-ay-b3a" secondAttribute="trailing" constant="150" id="PJk-Na-9c9"/>
                             <constraint firstItem="9t1-ay-b3a" firstAttribute="leading" secondItem="7Ul-1m-a2N" secondAttribute="leading" id="Pqf-2o-sJr"/>
+                            <constraint firstItem="kXF-c8-WA9" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="Qau-B5-6KV"/>
                             <constraint firstItem="9t1-ay-b3a" firstAttribute="top" secondItem="OiB-YK-74R" secondAttribute="topMargin" id="TYK-QA-Tks"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="trailing" secondItem="nBs-Qy-Coc" secondAttribute="trailing" id="Vz4-Gb-iMo"/>
+                            <constraint firstItem="nBs-Qy-Coc" firstAttribute="bottom" secondItem="IeZ-Fl-Dqe" secondAttribute="bottom" constant="250" id="Wf6-DE-wqF"/>
                             <constraint firstItem="7Ul-1m-a2N" firstAttribute="top" secondItem="lTB-Dw-Eql" secondAttribute="bottom" id="eHJ-sJ-5Er"/>
                             <constraint firstItem="7Ul-1m-a2N" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="fvr-GD-z1A"/>
-                            <constraint firstItem="kXF-c8-WA9" firstAttribute="bottom" secondItem="nBs-Qy-Coc" secondAttribute="bottom" id="g4K-Sv-yLW"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="hMa-lK-3iV"/>
+                            <constraint firstItem="IeZ-Fl-Dqe" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" constant="25" id="htX-Cj-6du"/>
                             <constraint firstItem="lTB-Dw-Eql" firstAttribute="top" secondItem="9t1-ay-b3a" secondAttribute="top" id="rRy-7F-I7S"/>
                             <constraint firstItem="lTB-Dw-Eql" firstAttribute="bottom" secondItem="9t1-ay-b3a" secondAttribute="bottom" id="tY3-Po-OlP"/>
                         </constraints>
@@ -223,12 +234,13 @@
                         <outlet property="activityCollectionView" destination="kXF-c8-WA9" id="4ph-WQ-rQY"/>
                         <outlet property="datePicker" destination="lTB-Dw-Eql" id="HE4-5S-ByV"/>
                         <outlet property="mapView" destination="7Ul-1m-a2N" id="Hc5-dH-iwg"/>
+                        <outlet property="noActivitiesFoundText" destination="IeZ-Fl-Dqe" id="1m1-zY-j5G"/>
                         <outlet property="searchBar" destination="9t1-ay-b3a" id="P3E-88-PSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JC-Qr-6Qa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="832"/>
+            <point key="canvasLocation" x="69.599999999999994" y="831.63418290854577"/>
         </scene>
         <!--Radio Archives-->
         <scene sceneID="IWa-hm-BV4">

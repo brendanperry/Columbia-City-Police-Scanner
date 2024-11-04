@@ -21,6 +21,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
             cell.configure(with: recording) { [weak self] id in
                 // play audio
                 self?.videoPlayer.media = VLCMedia(url: URL(string: "https://scanwc.com/assets/php/archives/archive_download.php?rs=yes&id=\(id)")!)
+                self?.videoPlayer.position = self?.videoPlayer.media.le
                 self?.videoPlayer.play()
                 print(id)
             }

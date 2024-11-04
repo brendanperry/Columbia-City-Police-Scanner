@@ -13,6 +13,7 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var activityCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var noActivitiesFoundText: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     let repository = PoliceActivityRepository()
@@ -39,13 +40,17 @@ class ActivityViewController: UIViewController {
             searchBar.text = ""
             reportedActivities = log.reportedActivity
             filteredReportedActivities = reportedActivities
-            activityCollectionView.reloadData()
-
-            await addPlacemarksToMap(activities: filteredReportedActivities)
         } catch {
             print(error.localizedDescription)
-            // TODO: Show the error!!
+            reportedActivities.removeAll()
+            filteredReportedActivities.removeAll()
+            // TODO: Show the error !! ??
         }
+        noActivitiesFoundText.isHidden = !reportedActivities.isEmpty
+        
+        activityCollectionView.reloadData()
+
+        await addPlacemarksToMap(activities: filteredReportedActivities)
     }
 
     private func configureDatePicker() {
