@@ -97,7 +97,7 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kXF-c8-WA9">
-                                <rect key="frame" x="0.0" y="314" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="314" width="375" height="304"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vZz-kN-96d">
                                     <size key="itemSize" width="375" height="128"/>
@@ -206,7 +206,6 @@
                         <viewLayoutGuide key="safeArea" id="nBs-Qy-Coc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kXF-c8-WA9" firstAttribute="bottom" secondItem="nBs-Qy-Coc" secondAttribute="bottom" constant="250" id="1y9-eW-s7d"/>
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="IeZ-Fl-Dqe" secondAttribute="trailing" constant="25" id="4L5-wA-qeU"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="top" secondItem="7Ul-1m-a2N" secondAttribute="bottom" id="5i1-Hm-F79"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="trailing" secondItem="nBs-Qy-Coc" secondAttribute="trailing" id="Ckm-P2-uCg"/>
@@ -220,6 +219,7 @@
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="bottom" secondItem="IeZ-Fl-Dqe" secondAttribute="bottom" constant="250" id="Wf6-DE-wqF"/>
                             <constraint firstItem="7Ul-1m-a2N" firstAttribute="top" secondItem="lTB-Dw-Eql" secondAttribute="bottom" id="eHJ-sJ-5Er"/>
                             <constraint firstItem="7Ul-1m-a2N" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="fvr-GD-z1A"/>
+                            <constraint firstAttribute="bottom" secondItem="kXF-c8-WA9" secondAttribute="bottom" id="hK8-dq-x3Q"/>
                             <constraint firstItem="kXF-c8-WA9" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="hMa-lK-3iV"/>
                             <constraint firstItem="IeZ-Fl-Dqe" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" constant="25" id="htX-Cj-6du"/>
                             <constraint firstItem="lTB-Dw-Eql" firstAttribute="top" secondItem="9t1-ay-b3a" secondAttribute="top" id="rRy-7F-I7S"/>
