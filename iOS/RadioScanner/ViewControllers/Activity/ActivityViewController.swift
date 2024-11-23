@@ -35,7 +35,8 @@ class ActivityViewController: UIViewController {
     
     func updateData(day: Int, month: Int, year: Int) async {
         do {
-            let log = try await repository.getActivityLogFor(day: day, month: month, year: year)
+            // TODO: Handle null? throw error instead?
+            guard let log = try await repository.getActivityLogFor(day: day, month: month, year: year) else { return }
             
             searchBar.text = ""
             reportedActivities = log.reportedActivity

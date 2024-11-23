@@ -19,17 +19,19 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
             
             let recording = recordings[indexPath.row]
             cell.configure(with: recording) { [weak self] id in
-                // play audio
-                self?.videoPlayer.media = VLCMedia(url: URL(string: "https://scanwc.com/assets/php/archives/archive_download.php?rs=yes&id=\(id)")!)
-                self?.videoPlayer.position = self?.videoPlayer.media.le
-                self?.videoPlayer.play()
-                print(id)
+                self?.performSegue(withIdentifier: "playAudio", sender: nil)
             }
             
             return cell
         }
         
         return UICollectionViewCell(frame: .zero)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerViewController = segue.destination as? AudioPlayerViewController {
+            audioPlayerViewController.selectedMedia = selectedMedia
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

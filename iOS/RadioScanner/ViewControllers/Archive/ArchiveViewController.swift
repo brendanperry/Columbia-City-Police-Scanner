@@ -15,6 +15,7 @@ class ArchiveViewController: UIViewController {
     
     let repository = WhitleyCountyRadioRepository()
     let videoPlayer = VLCMediaPlayer()
+    var selectedMedia: URL?
     
     var recordings = [Recording]()
     

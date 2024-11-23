@@ -17,7 +17,23 @@ class CCPoliceActivityRepositoryTest {
         )
 
         assertTrue {
-            log.reportedActivity.count() == 52
+            log?.reportedActivity?.count() == 52
+        }
+    }
+
+    @Test
+    fun testWhereExceptionWas() {
+        val repository = CCPoliceActivityRepository()
+
+        val log = repository.readPdfStringData(
+            "Reported Nature Incident address\n05:07:43 11/06/24 Extra Patrol\n05:09:58 11/06/24 Foot Ptrl Busn\n05:12:56 11/06/24 Traffic Stop W US 30 EB & N LINE ST\n05:16:12 11/06/24 Foot Ptrl Busn\n05:17:45 11/06/24 Foot Ptrl Busn\n05:29:10 11/06/24 Traffic Stop E US 30 EB & E SR 205\n05:54:25 11/06/24 Traffic Stop E US 30 EB & N MAIN ST\n06:28:52 11/06/24 Veh Crash PD W VAN BUREN ST & N LINE ST\n06:58:44 11/06/24 Traffic Stop E SR 205 & S EAGLE GLEN TR\n07:40:00 11/06/24 SRO Activity 17XX S SR 9\n07:42:55 11/06/24 SRO Activity 16XX S SR 9\n08:07:49 11/06/24 SRO Activity 16XX S SR 9\n08:27:24 11/06/24 SRO Activity 4XX S MAIN ST\n09:18:49 11/06/24 SRO Activity 7XX E JACKSON ST\n09:42:00 11/06/24 Foot Ptrl Busn\n10:29:41 11/06/24 Welfare Check 5XX W ELLSWORTH ST\n10:45:23 11/06/24 Ast Fire XX HOLDEN RD\n11:20:16 11/06/24 Animal Running 9XX S LINE ST\n11:58:58 11/06/24 SRO Activity 22XX S 500 E\n12:46:36 11/06/24 Insp - VIN 5XX S CHAUNCEY ST\n13:00:00 11/06/24 SRO Activity 52XX N SR 109\n13:00:58 11/06/24 Veh Crash PD S 50 E & S SR 9\n13:38:45 11/06/24 SRO Activity 17XX S SR 9\n13:41:22 11/06/24 SRO Activity 16XX S SR 9\n13:57:53 11/06/24 Traffic Direct S OHIO ST & E SWIHART ST\n14:31:07 11/06/24 SRO Activity 16XX S SR 9\n15:40:26 11/06/24 Juvenile N PARK TERRACE BLVD & E VAN BUREN ST\n16:34:16 11/06/24 Veh Crash PD E US 30 EB & S 400 E\n18:02:29 11/06/24 Citizen Assist 4XX S WHITLEY ST\n18:47:01 11/06/24 Susp Person 5XX N LINE ST\n19:04:36 11/06/24 Missing Person 1XX W WALKER WAY\n19:38:51 11/06/24 Welfare Check 1XX W WALKER WAY\n21:40:03 11/06/24 Citizen Assist 8XX E BUSINESS 30\n22:03:47 11/06/24 Foot Ptrl Busn\n11/7/2024 7:08:24 AM Page 1 of 1",
+            1,
+            1,
+            24
+        )
+
+        assertTrue {
+            log?.reportedActivity?.count() == 52
         }
     }
 }
