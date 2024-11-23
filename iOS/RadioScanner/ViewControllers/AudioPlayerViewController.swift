@@ -34,19 +34,10 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         if let selectedMedia {
             audioPlayer.media = VLCMedia(url: selectedMedia)
             playAudio()
-            
         }
     }
 
-    func configure(title: String, time: String, url: URL) {
-        currentTime.text = time
-        maxTime.text = "14:59"
-        audioTitle.text = title
-    }
-
-
     @IBAction func sliderMoved(_ sender: Any) {
-        print(timelineSlider.value)
         let newPosition = timelineSlider.value / timelineSlider.maximumValue
         
         audioPlayer.position = newPosition

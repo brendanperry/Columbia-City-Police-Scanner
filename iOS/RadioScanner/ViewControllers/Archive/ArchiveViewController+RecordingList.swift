@@ -19,6 +19,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
             
             let recording = recordings[indexPath.row]
             cell.configure(with: recording) { [weak self] id in
+                self?.selectedMedia = URL(string: "https://scanwc.com/assets/php/archives/archive_download.php?rs=no&id=\(id)")
                 self?.performSegue(withIdentifier: "playAudio", sender: nil)
             }
             
