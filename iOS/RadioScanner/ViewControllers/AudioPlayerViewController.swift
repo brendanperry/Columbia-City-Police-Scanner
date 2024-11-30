@@ -37,23 +37,37 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         audioPlayer.delegate = self
     }
     
-    func setRecording(recording: Recording, for activity: ReportedActivity) {
+    func setRecording(recording: Recording, for activity: ReportedActivity?) {
         self.recording = recording
-        updateMedia()
-        audioTitle.text = activity.nature + " at " + activity.displayTime()
-        locationLabel.text = activity.address ?? ""
-        timeLabel.text = recording.title
         
-        playAudio()
+        if let activity {
+            audioTitle.text = activity.nature + " at " + activity.displayTime()
+            locationLabel.text = activity.address ?? ""
+            timeLabel.text = recording.title
+        } else {
+            audioTitle.text = recording.title
+            locationLabel.text = ""
+            timeLabel.text = ""
+        }
+        
+        let totalMinutes = recording.endTime.minute - recording.startTime.minute
+        let placement = Float((activity?.dateTime.minute ?? 0 - 2) - recording.startTime.minute) / Float(totalMinutes + 1)
+        
+        updateMedia(placement: max(0, placement))
+        
+        playAudio(withPosition: !silenceRemovedToggle.isOn ? placement : 0)
     }
     
-    func updateMedia() {
+    func updateMedia(placement: Float?) {
         guard let recording else { return }
         var resource = "https://scanwc.com/assets/php/archives/archive_download.php?id=\(recording.id)"
         
         if silenceRemovedToggle.isOn {
             resource += "&rs=yes"
+        } else {
+            audioPlayer.position = placement ?? 0.0
         }
+        
         guard let url = URL(string: resource) else { return }
         audioPlayer.media = VLCMedia(url: url)
         
@@ -61,8 +75,6 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         currentTime.text = "--:--"
         maxTime.text = "--:--"
         timelineSlider.setValue(0, animated: true)
-        
-        playAudio()
     }
 
     @IBAction func sliderMoved(_ sender: Any) {
@@ -76,16 +88,21 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
             audioPlayer.pause()
             playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         } else {
-            playAudio()
+            playAudio(withPosition: nil)
         }
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
-        updateMedia()
+        updateMedia(placement: nil)
     }
     
-    func playAudio() {
+    func playAudio(withPosition position: Float?) {
         audioPlayer.play()
+        
+        if let position {
+            audioPlayer.position = position
+        }
+
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
     }
 }

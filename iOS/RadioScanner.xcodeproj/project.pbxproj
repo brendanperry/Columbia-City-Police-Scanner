@@ -24,7 +24,6 @@
 		C6562E842C9C8D2000B7B8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E762C9C8D2000B7B8E5 /* AppDelegate.swift */; };
 		C6562E852C9C8D2000B7B8E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */; };
 		C6562E862C9C8D2000B7B8E5 /* LiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */; };
-		C6B67DDB2CFB92920049DF82 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C6B67DDA2CFB92920049DF82 /* test.mp3 */; };
 		C6CEF9972CC563EF006D9389 /* ArchiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9962CC563E7006D9389 /* ArchiveCollectionViewCell.swift */; };
 		C6CEF9992CC564AE006D9389 /* ArchiveViewController+RecordingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9982CC564A2006D9389 /* ArchiveViewController+RecordingList.swift */; };
 		C6CEF99C2CC73ED9006D9389 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF99A2CC73ED9006D9389 /* AudioPlayerViewController.swift */; };
@@ -59,7 +58,6 @@
 		C6562E7B2C9C8D2000B7B8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
-		C6B67DDA2CFB92920049DF82 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		C6CEF97D2CC1FD84006D9389 /* ActivityLog.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ActivityLog.kt; sourceTree = "<group>"; };
 		C6CEF97E2CC1FD84006D9389 /* City.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = City.kt; sourceTree = "<group>"; };
 		C6CEF97F2CC1FD84006D9389 /* Recording.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Recording.kt; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				C6562E762C9C8D2000B7B8E5 /* AppDelegate.swift */,
 				C6562E772C9C8D2000B7B8E5 /* Assets.xcassets */,
 				C6562E782C9C8D2000B7B8E5 /* Info.plist */,
-				C6B67DDA2CFB92920049DF82 /* test.mp3 */,
 				C6562E7A2C9C8D2000B7B8E5 /* LaunchScreen.storyboard */,
 				C6562E7C2C9C8D2000B7B8E5 /* Main.storyboard */,
 				C6EF15D42CA63D880080FFB8 /* TabViewController.swift */,
@@ -401,7 +398,6 @@
 			files = (
 				C6562E802C9C8D2000B7B8E5 /* Assets.xcassets in Resources */,
 				C6562E822C9C8D2000B7B8E5 /* LaunchScreen.storyboard in Resources */,
-				C6B67DDB2CFB92920049DF82 /* test.mp3 in Resources */,
 				C6562E832C9C8D2000B7B8E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

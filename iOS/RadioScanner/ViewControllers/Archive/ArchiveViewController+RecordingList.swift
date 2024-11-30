@@ -19,7 +19,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
             
             let recording = recordings[indexPath.row]
             cell.configure(with: recording) { [weak self] id in
-                self?.selectedMedia = URL(string: "https://scanwc.com/assets/php/archives/archive_download.php?rs=no&id=\(id)")
+                self?.selectedRecording = recording
                 self?.performSegue(withIdentifier: "playAudio", sender: nil)
             }
             
@@ -31,7 +31,8 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerViewController = segue.destination as? AudioPlayerViewController {
-            audioPlayerViewController.selectedMedia = selectedMedia
+            guard let selectedRecording else { return }
+            audioPlayerViewController.setRecording(recording: selectedRecording, for: nil)
         }
     }
     
