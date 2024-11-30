@@ -13,17 +13,18 @@ class ActivityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var listenButton: UIButton!
     @IBOutlet weak var nature: UILabel!
-    var openArchives: (() -> Void)?
+    var activity: ReportedActivity?
+    var listenToAudio: ((ReportedActivity?) -> Void)?
     
-    func configure(with activity: ReportedActivity, openArchives: @escaping () -> Void) {
-        self.openArchives = openArchives
+    func configure(with activity: ReportedActivity, listenToAudio: @escaping (ReportedActivity?) -> Void) {
+        self.activity = activity
+        self.listenToAudio = listenToAudio
         time.text = activity.displayTime()
         location.text = activity.address
         nature.text = activity.nature
     }
     
     @IBAction func listenButtonPress(_ sender: Any) {
-        openArchives?()
-        print(time.text ?? "oof")
+        listenToAudio?(activity)
     }
 }

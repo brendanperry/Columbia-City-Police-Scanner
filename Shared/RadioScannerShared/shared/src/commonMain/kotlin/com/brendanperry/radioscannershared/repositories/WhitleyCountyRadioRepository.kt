@@ -5,6 +5,7 @@ import com.brendanperry.radioscannershared.sources.HttpClient
 import com.fleeksoft.ksoup.Ksoup
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
+import kotlinx.datetime.LocalDateTime
 
 class WhitleyCountyRadioRepository {
     private fun intToTwoCharacterString(value: Int): String {
@@ -33,7 +34,27 @@ class WhitleyCountyRadioRepository {
 
         document.getElementsByClass("archives_files").first()?.let {
             it.children().forEach { html ->
-                val recording = Recording(html.text(), html.value())
+                val title = html.text()
+
+                val time = Recording.getTime(title)
+
+                val startTime = LocalDateTime(
+                    year = year,
+                    monthNumber = month,
+                    dayOfMonth = day,
+                    hour = hour,
+                    minute = time.startMinute
+                )
+                val endTime = LocalDateTime(
+                    year = year,
+                    monthNumber = month,
+                    dayOfMonth = day,
+                    hour = hour,
+                    minute = time.endMinute
+                )
+
+                val recording =
+                    Recording(title, html.value(), startTime = startTime, endTime = endTime)
                 recordings.add(recording)
             }
         }

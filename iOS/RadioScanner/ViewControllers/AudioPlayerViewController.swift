@@ -7,17 +7,22 @@
 
 import UIKit
 import MobileVLCKit
+import shared
 
 class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var maxTime: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
     @IBOutlet var timelineSlider: UISlider!
+    @IBOutlet var silenceRemovedToggle: UISwitch!
     @IBOutlet weak var audioTitle: UILabel!
     
     let audioPlayer = VLCMediaPlayer()
     
     var selectedMedia: URL?
+    var recording: Recording?
     
     func mediaPlayerTimeChanged(_ aNotification: Notification!) {
         currentTime.text = audioPlayer.time.stringValue
@@ -30,11 +35,34 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         super.viewDidLoad()
 
         audioPlayer.delegate = self
+    }
+    
+    func setRecording(recording: Recording, for activity: ReportedActivity) {
+        self.recording = recording
+        updateMedia()
+        audioTitle.text = activity.nature + " at " + activity.displayTime()
+        locationLabel.text = activity.address ?? ""
+        timeLabel.text = recording.title
         
-        if let selectedMedia {
-            audioPlayer.media = VLCMedia(url: selectedMedia)
-            playAudio()
+        playAudio()
+    }
+    
+    func updateMedia() {
+        guard let recording else { return }
+        var resource = "https://scanwc.com/assets/php/archives/archive_download.php?id=\(recording.id)"
+        
+        if silenceRemovedToggle.isOn {
+            resource += "&rs=yes"
         }
+        guard let url = URL(string: resource) else { return }
+        audioPlayer.media = VLCMedia(url: url)
+        
+        playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        currentTime.text = "--:--"
+        maxTime.text = "--:--"
+        timelineSlider.setValue(0, animated: true)
+        
+        playAudio()
     }
 
     @IBAction func sliderMoved(_ sender: Any) {
@@ -50,6 +78,10 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         } else {
             playAudio()
         }
+    }
+    
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        updateMedia()
     }
     
     func playAudio() {

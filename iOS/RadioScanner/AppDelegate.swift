@@ -8,6 +8,7 @@
 import UIKit
 import shared
 import PDFKit
+import Speech
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.beginReceivingRemoteControlEvents()
         
+        oofPlayer()
+        
         return true
+    }
+    
+    func oofPlayer() {
+        let audioUrl = Bundle.main.url(forResource: "test", withExtension: "mp3")!
+        
+        let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+        let request = SFSpeechURLRecognitionRequest(url: audioUrl)
+        
+        request.shouldReportPartialResults = true
+        
+        if recognizer?.isAvailable ?? false {
+            recognizer?.recognitionTask(with: request, resultHandler: { result, error in
+                print(result?.bestTranscription.formattedString ?? "OOFs")
+            })
+        }
     }
 
     // MARK: UISceneSession Lifecycle

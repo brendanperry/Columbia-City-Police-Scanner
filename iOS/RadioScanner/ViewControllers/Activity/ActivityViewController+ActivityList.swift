@@ -17,20 +17,9 @@ extension ActivityViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.systemBackground : UIColor(named: "CollectionSecondary")
             
             let activity = filteredReportedActivities[indexPath.row]
-            cell.configure(with: activity) { [weak self] in
-                if let archiveViewController = self?.tabBarController?.viewControllers?[2] as? ArchiveViewController {
-                    self?.tabBarController?.selectedIndex = 2
-                    
-                    let selectedDate = self?.datePicker.date ?? Date()
-                    let timeComponents = activity.time.split(separator: ":")
-                    if let hour = Int(timeComponents[0]), let minute = Int(timeComponents[1]) {
-                        let date = Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: selectedDate)
-                        archiveViewController.datePicker.date = date ?? selectedDate
-                        Task {
-                            await archiveViewController.loadData()
-                        }
-                    }
-                }
+            cell.configure(with: activity) { [weak self] activity in
+                self?.selectedActivity = activity
+                self?.performSegue(withIdentifier: "listenPressed", sender: self)
             }
             
             return cell

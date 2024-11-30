@@ -16,11 +16,13 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var noActivitiesFoundText: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
-    let repository = PoliceActivityRepository()
+    let activityRepository = PoliceActivityRepository()
     let geocodeManager = GeocodeManager()
     var reportedActivities = [ReportedActivity]()
     var filteredReportedActivities = [ReportedActivity]()
-
+    var selectedActivity: ReportedActivity?
+    let radioRepository = WhitleyCountyRadioRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,7 @@ class ActivityViewController: UIViewController {
     func updateData(day: Int, month: Int, year: Int) async {
         do {
             // TODO: Handle null? throw error instead?
-            guard let log = try await repository.getActivityLogFor(day: day, month: month, year: year) else { return }
+            guard let log = try await activityRepository.getActivityLogFor(day: day, month: month, year: year) else { return }
             
             searchBar.text = ""
             reportedActivities = log.reportedActivity
@@ -50,10 +52,11 @@ class ActivityViewController: UIViewController {
         noActivitiesFoundText.isHidden = !reportedActivities.isEmpty
         
         activityCollectionView.reloadData()
-
+        
+        clearPlacemarksFromMap()
         await addPlacemarksToMap(activities: filteredReportedActivities)
     }
-
+    
     private func configureDatePicker() {
         let today = Date()
         
@@ -70,6 +73,30 @@ class ActivityViewController: UIViewController {
         if let day = components.day, let month = components.month, let year = components.year {
             Task {
                 await updateData(day: day, month: month, year: year % 100)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedActivity else { return }
+        if let audioPlayerViewController = segue.destination as? AudioPlayerViewController {
+            
+            Task {
+                let components = selectedActivity.dateTime.toNSDateComponents()
+                
+                if let day = components.day, let month = components.month, let year = components.year, let hour = components.hour {
+                    // TODO: handle error
+                    guard let recordings = try? await radioRepository.getRecordingsFor(day: Int32(day), month: Int32(month), year: Int32(year), hour: Int32(hour)) else { return }
+                    
+                    let recordingList = recordings.toArray()
+                    
+                    for recording in recordingList {
+                        if recording.startTime.minute <= selectedActivity.dateTime.minute && recording.endTime.minute >= selectedActivity.dateTime.minute {
+                            audioPlayerViewController.setRecording(recording: recording, for: selectedActivity)
+                            return
+                        }
+                    }
+                }
             }
         }
     }

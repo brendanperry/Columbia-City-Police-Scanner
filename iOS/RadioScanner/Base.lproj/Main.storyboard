@@ -236,6 +236,7 @@
                         <outlet property="mapView" destination="7Ul-1m-a2N" id="Hc5-dH-iwg"/>
                         <outlet property="noActivitiesFoundText" destination="IeZ-Fl-Dqe" id="1m1-zY-j5G"/>
                         <outlet property="searchBar" destination="9t1-ay-b3a" id="P3E-88-PSz"/>
+                        <segue destination="IeC-CM-BH7" kind="show" identifier="listenPressed" id="c5h-yN-Qc0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JC-Qr-6Qa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -351,7 +352,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="orS-tm-1Zq">
-                                <rect key="frame" x="14" y="308.5" width="347" height="31"/>
+                                <rect key="frame" x="14" y="283.5" width="347" height="81"/>
                                 <connections>
                                     <action selector="sliderMoveBegan:" destination="IeC-CM-BH7" eventType="editingDidBegin" id="0CG-Gx-ZcO"/>
                                     <action selector="sliderMoveEnded:" destination="IeC-CM-BH7" eventType="editingDidEnd" id="jXp-K3-yCv"/>
@@ -359,13 +360,19 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34l-Il-Noe">
-                                <rect key="frame" x="16" y="346" width="35" height="21"/>
+                                <rect key="frame" x="16" y="371" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKR-ZX-CGe">
+                                <rect key="frame" x="324" y="371" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rge-Jc-0rb">
-                                <rect key="frame" x="146" y="210" width="83" height="73.5"/>
+                                <rect key="frame" x="146" y="185" width="83" height="73.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
                                     <imageReference key="image" image="play.circle" catalog="system" symbolScale="default"/>
@@ -382,8 +389,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKR-ZX-CGe">
-                                <rect key="frame" x="324" y="346" width="35" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-jP-VMm">
+                                <rect key="frame" x="16" y="557" width="343" height="70"/>
+                                <string key="text">The radio activity corresponding to a logged event may be difficult to find. The time logged may not match exactly, so it is best to listen a few minutes before and after.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lTw-ZM-PkT">
+                                <rect key="frame" x="310" y="412" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="IeC-CM-BH7" eventType="valueChanged" id="Wbh-7p-Mq3"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Silence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RV-Xa-fTR">
+                                <rect key="frame" x="16" y="417" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -394,17 +414,25 @@
                         <constraints>
                             <constraint firstItem="YwX-g9-Plm" firstAttribute="trailing" secondItem="orS-tm-1Zq" secondAttribute="trailing" constant="16" id="13D-5I-mpf"/>
                             <constraint firstItem="34l-Il-Noe" firstAttribute="top" secondItem="orS-tm-1Zq" secondAttribute="bottom" constant="7.5" id="3oV-aX-a4L"/>
+                            <constraint firstItem="YwX-g9-Plm" firstAttribute="bottom" secondItem="dsM-jP-VMm" secondAttribute="bottom" constant="20" id="4HF-Ho-5Be"/>
+                            <constraint firstItem="1RV-Xa-fTR" firstAttribute="top" secondItem="34l-Il-Noe" secondAttribute="bottom" constant="25" id="BHg-tA-7Hg"/>
                             <constraint firstItem="orS-tm-1Zq" firstAttribute="top" secondItem="Rge-Jc-0rb" secondAttribute="bottom" constant="25" id="Bgc-Kj-n5I"/>
                             <constraint firstItem="nzn-13-8Ee" firstAttribute="top" secondItem="9CI-hH-she" secondAttribute="bottom" constant="8" symbolic="YES" id="DOg-sK-9cb"/>
+                            <constraint firstItem="1RV-Xa-fTR" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="DhS-U0-H3F"/>
                             <constraint firstItem="9CI-hH-she" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="Eu0-SZ-PwG"/>
+                            <constraint firstItem="dsM-jP-VMm" firstAttribute="top" secondItem="34l-Il-Noe" secondAttribute="bottom" constant="165" id="Giu-eT-5jB"/>
                             <constraint firstItem="YwX-g9-Plm" firstAttribute="trailing" secondItem="rKR-ZX-CGe" secondAttribute="trailing" constant="16" id="IM6-Ai-kBD"/>
                             <constraint firstItem="XAQ-AE-j9v" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="PcW-2d-p6M"/>
+                            <constraint firstItem="YwX-g9-Plm" firstAttribute="trailing" secondItem="lTw-ZM-PkT" secondAttribute="trailing" constant="16" id="Z3t-Yt-iLj"/>
+                            <constraint firstItem="dsM-jP-VMm" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="ZFF-7F-LeG"/>
                             <constraint firstItem="9CI-hH-she" firstAttribute="top" secondItem="YwX-g9-Plm" secondAttribute="top" constant="20" id="auO-r8-NmQ"/>
+                            <constraint firstItem="YwX-g9-Plm" firstAttribute="trailing" secondItem="dsM-jP-VMm" secondAttribute="trailing" constant="16" id="fjC-ry-Jgh"/>
                             <constraint firstItem="XAQ-AE-j9v" firstAttribute="top" secondItem="nzn-13-8Ee" secondAttribute="bottom" constant="8" symbolic="YES" id="gYj-ET-hd1"/>
                             <constraint firstItem="nzn-13-8Ee" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="hOC-Oh-rx6"/>
                             <constraint firstItem="34l-Il-Noe" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="jya-jd-hal"/>
                             <constraint firstItem="Rge-Jc-0rb" firstAttribute="centerX" secondItem="w7p-cr-bO8" secondAttribute="centerX" id="mPv-uw-O5Q"/>
                             <constraint firstItem="orS-tm-1Zq" firstAttribute="leading" secondItem="YwX-g9-Plm" secondAttribute="leading" constant="16" id="n7L-Yw-HQO"/>
+                            <constraint firstItem="lTw-ZM-PkT" firstAttribute="top" secondItem="rKR-ZX-CGe" secondAttribute="bottom" constant="20" id="qPl-Yz-EH0"/>
                             <constraint firstItem="rKR-ZX-CGe" firstAttribute="top" secondItem="orS-tm-1Zq" secondAttribute="bottom" constant="7.5" id="rWI-PB-iEk"/>
                             <constraint firstItem="orS-tm-1Zq" firstAttribute="centerY" secondItem="w7p-cr-bO8" secondAttribute="centerY" id="vFi-CE-6Kf"/>
                         </constraints>
@@ -413,15 +441,18 @@
                     <connections>
                         <outlet property="audioTitle" destination="9CI-hH-she" id="NC0-7x-83t"/>
                         <outlet property="currentTime" destination="34l-Il-Noe" id="hBt-Bg-4ur"/>
+                        <outlet property="locationLabel" destination="XAQ-AE-j9v" id="qMR-71-5FK"/>
                         <outlet property="maxTime" destination="rKR-ZX-CGe" id="YIu-UV-oNL"/>
                         <outlet property="playButton" destination="Rge-Jc-0rb" id="CbO-hN-GnD"/>
+                        <outlet property="silenceRemovedToggle" destination="lTw-ZM-PkT" id="MZB-aq-bPt"/>
+                        <outlet property="timeLabel" destination="nzn-13-8Ee" id="MzT-Va-WyJ"/>
                         <outlet property="timelineSlider" destination="orS-tm-1Zq" id="eYE-m8-TVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj2-WL-33F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YSB-Xn-Oq5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1573.5999999999999" y="831.63418290854577"/>
+            <point key="canvasLocation" x="493.60000000000002" y="1680.8095952023989"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="5lz-Xc-3z2">
@@ -445,6 +476,9 @@
             <point key="canvasLocation" x="72.51908396946564" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c5h-yN-Qc0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="archivebox" catalog="system" width="128" height="107"/>
         <image name="archivebox.fill" catalog="system" width="128" height="107"/>
@@ -463,6 +497,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
