@@ -391,7 +391,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-jP-VMm">
                                 <rect key="frame" x="16" y="557" width="343" height="70"/>
-                                <string key="text">The radio activity corresponding to a logged event may be difficult to find. The time logged may not match exactly, so it is best to listen a few minutes before and after.</string>
+                                <string key="text">The radio activity corresponding to a logged event may be difficult to find. The time logged may not match exactly, so it is best to listen a few minutes before and after. You can find more recordings in the Archhive tab.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>

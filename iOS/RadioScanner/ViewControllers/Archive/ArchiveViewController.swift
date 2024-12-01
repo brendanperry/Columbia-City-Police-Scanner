@@ -21,6 +21,10 @@ class ArchiveViewController: UIViewController {
     
     override func viewDidLoad() {
         configureDatePicker()
+        
+        Task {
+            await loadData()
+        }
     }
     
     fileprivate func configureDatePicker() {
