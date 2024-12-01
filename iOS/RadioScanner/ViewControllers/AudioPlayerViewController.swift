@@ -45,9 +45,9 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
             locationLabel.text = activity.address ?? ""
             timeLabel.text = recording.title
         } else {
-            audioTitle.text = recording.title
+            audioTitle.text = ""
             locationLabel.text = ""
-            timeLabel.text = ""
+            timeLabel.text = recording.title
         }
         
         let totalMinutes = recording.endTime.minute - recording.startTime.minute
@@ -94,6 +94,7 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     
     @IBAction func switchChanged(_ sender: UISwitch) {
         updateMedia(placement: nil)
+        playAudio(withPosition: nil)
     }
     
     func playAudio(withPosition position: Float?) {

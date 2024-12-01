@@ -324,12 +324,12 @@
                     <connections>
                         <outlet property="collectionView" destination="cfl-VB-3ck" id="4m4-RN-Kr6"/>
                         <outlet property="datePicker" destination="y1C-rk-rXj" id="BhP-VC-U1Y"/>
-                        <segue destination="IeC-CM-BH7" kind="show" identifier="playAudio" id="Y8s-ew-qgv"/>
+                        <segue destination="IeC-CM-BH7" kind="show" identifier="playAudio" id="ppv-Fz-NW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVG-x6-93S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="832"/>
+            <point key="canvasLocation" x="919" y="842"/>
         </scene>
         <!--Audio Player View Controller-->
         <scene sceneID="fqa-jf-9Ud">
@@ -477,7 +477,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c5h-yN-Qc0"/>
+        <segue reference="ppv-Fz-NW1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="archivebox" catalog="system" width="128" height="107"/>

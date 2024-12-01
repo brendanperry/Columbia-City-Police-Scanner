@@ -92,6 +92,7 @@ class ActivityViewController: UIViewController {
                     
                     for recording in recordingList {
                         if recording.startTime.minute <= selectedActivity.dateTime.minute && recording.endTime.minute >= selectedActivity.dateTime.minute {
+                            audioPlayerViewController.loadViewIfNeeded()
                             audioPlayerViewController.setRecording(recording: recording, for: selectedActivity)
                             return
                         }

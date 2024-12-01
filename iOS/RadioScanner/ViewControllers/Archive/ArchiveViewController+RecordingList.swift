@@ -20,7 +20,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
             let recording = recordings[indexPath.row]
             cell.configure(with: recording) { [weak self] id in
                 self?.selectedRecording = recording
-                self?.performSegue(withIdentifier: "playAudio", sender: nil)
+                self?.performSegue(withIdentifier: "playAudio", sender: self)
             }
             
             return cell
@@ -32,6 +32,7 @@ extension ArchiveViewController: UICollectionViewDataSource, UICollectionViewDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerViewController = segue.destination as? AudioPlayerViewController {
             guard let selectedRecording else { return }
+            audioPlayerViewController.loadViewIfNeeded()
             audioPlayerViewController.setRecording(recording: selectedRecording, for: nil)
         }
     }
