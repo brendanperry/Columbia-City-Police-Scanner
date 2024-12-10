@@ -19,22 +19,22 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     @IBOutlet var silenceRemovedToggle: UISwitch!
     @IBOutlet weak var audioTitle: UILabel!
     
-    let audioPlayer = VLCMediaPlayer()
+    let mediaManager = MediaManager.shared
     
     var selectedMedia: URL?
     var recording: Recording?
     
     func mediaPlayerTimeChanged(_ aNotification: Notification!) {
-        currentTime.text = audioPlayer.time.stringValue
-        maxTime.text = audioPlayer.media.length.stringValue
+        currentTime.text = mediaManager.mediaPlayer.time.stringValue
+        maxTime.text = mediaManager.mediaPlayer.media.length.stringValue
         
-        timelineSlider.setValue(audioPlayer.position, animated: true)
+        timelineSlider.setValue(mediaManager.mediaPlayer.position, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        audioPlayer.delegate = self
+        mediaManager.mediaPlayer.delegate = self
     }
     
     func setRecording(recording: Recording, for activity: ReportedActivity?) {
@@ -53,55 +53,68 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         let totalMinutes = recording.endTime.minute - recording.startTime.minute
         let placement = Float((activity?.dateTime.minute ?? 0 - 2) - recording.startTime.minute) / Float(totalMinutes + 1)
         
-        updateMedia(placement: max(0, placement))
+        let media = updateMedia(placement: max(0, placement))
         
-        playAudio(withPosition: !silenceRemovedToggle.isOn ? placement : 0)
+        Task {
+            await playAudio(withPosition: !silenceRemovedToggle.isOn ? placement : 0, url: media)
+        }
     }
     
-    func updateMedia(placement: Float?) {
-        guard let recording else { return }
+    func updateMedia(placement: Float?) -> URL? {
+        guard let recording else { return nil }
         var resource = "https://scanwc.com/assets/php/archives/archive_download.php?id=\(recording.id)"
         
         if silenceRemovedToggle.isOn {
             resource += "&rs=yes"
         } else {
-            audioPlayer.position = placement ?? 0.0
+            mediaManager.mediaPlayer.position = placement ?? 0.0
         }
         
-        guard let url = URL(string: resource) else { return }
-        audioPlayer.media = VLCMedia(url: url)
+        guard let url = URL(string: resource) else { return nil }
         
         playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         currentTime.text = "--:--"
         maxTime.text = "--:--"
         timelineSlider.setValue(0, animated: true)
+        
+        return url
     }
 
     @IBAction func sliderMoved(_ sender: Any) {
         let newPosition = timelineSlider.value / timelineSlider.maximumValue
         
-        audioPlayer.position = newPosition
+        mediaManager.mediaPlayer.position = newPosition
     }
     
     @IBAction func playButtonPressed(_ sender: Any) {
-        if audioPlayer.isPlaying {
-            audioPlayer.pause()
-            playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        if mediaManager.mediaPlayer.isPlaying {
+            Task {
+                await mediaManager.pause()
+                playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            }
         } else {
-            playAudio(withPosition: nil)
+            Task {
+                await playAudio(withPosition: nil, url: nil)
+            }
         }
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
-        updateMedia(placement: nil)
-        playAudio(withPosition: nil)
+        Task {
+            let url = updateMedia(placement: nil)
+            await playAudio(withPosition: nil, url: url)
+        }
     }
     
-    func playAudio(withPosition position: Float?) {
-        audioPlayer.play()
+    func playAudio(withPosition position: Float?, url: URL?) async {
+        await mediaManager.play(url: url, isLivestream: false, wasPaused: { [weak self] in
+            self?.playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        }, wasResumed: { [weak self] in
+            self?.playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        })
         
         if let position {
-            audioPlayer.position = position
+            mediaManager.mediaPlayer.position = position
         }
 
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)

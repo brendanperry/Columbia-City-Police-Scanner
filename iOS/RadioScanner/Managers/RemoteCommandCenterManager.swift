@@ -8,23 +8,28 @@ import MediaPlayer
 
 struct RemoteCommandCenterManager {
     let commandCenter = MPRemoteCommandCenter.shared()
-    let playAudio: () -> Void
-    let pauseAudio: () -> Void
 
-    init(pauseAudio: @escaping () -> Void, playAudio: @escaping () -> Void) {
-        self.playAudio = playAudio
-        self.pauseAudio = pauseAudio
-        
+    init() {
         commandCenter.playCommand.isEnabled = true
         commandCenter.pauseCommand.isEnabled = true
-        
+    }
+    
+    func addPlayTarget(_ target: @escaping () -> Void) -> Any {
         commandCenter.playCommand.addTarget { event in
-            playAudio()
+            target()
             return .success
         }
-        commandCenter.pauseCommand.addTarget { event in
-            pauseAudio()
+    }
+    
+    func addPauseTarget(_ target: @escaping () -> Void) -> Any {
+        return commandCenter.pauseCommand.addTarget { event in
+            target()
             return .success
         }
+    }
+    
+    func removeTargets(pauseTarget: Any, playTarget: Any) {
+        commandCenter.pauseCommand.removeTarget(pauseTarget)
+        commandCenter.pauseCommand.removeTarget(playTarget)
     }
 }

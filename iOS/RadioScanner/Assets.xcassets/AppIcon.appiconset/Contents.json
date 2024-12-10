@@ -1,31 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Columbia City(2).png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Columbia City(2) 1.png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "tinted"
-        }
-      ],
-      "filename" : "Columbia City(2) 2.png",
+      "filename" : "PoliceScanner-Icon-1024px.jpeg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

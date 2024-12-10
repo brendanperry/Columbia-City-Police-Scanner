@@ -27,6 +27,7 @@
 		C6B67DDD2CFC1DC80049DF82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6B67DDC2CFC1DC80049DF82 /* GoogleService-Info.plist */; };
 		C6B67DE02CFCDE390049DF82 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = C6B67DDF2CFCDE390049DF82 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		C6B67DE22CFCDE390049DF82 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C6B67DE12CFCDE390049DF82 /* FirebaseCrashlytics */; };
+		C6B67DE52D02AADE0049DF82 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B67DE42D02AAD50049DF82 /* MediaManager.swift */; };
 		C6CEF9972CC563EF006D9389 /* ArchiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9962CC563E7006D9389 /* ArchiveCollectionViewCell.swift */; };
 		C6CEF9992CC564AE006D9389 /* ArchiveViewController+RecordingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF9982CC564A2006D9389 /* ArchiveViewController+RecordingList.swift */; };
 		C6CEF99C2CC73ED9006D9389 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEF99A2CC73ED9006D9389 /* AudioPlayerViewController.swift */; };
@@ -62,6 +63,7 @@
 		C6562E7D2C9C8D2000B7B8E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6562E7E2C9C8D2000B7B8E5 /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
 		C6B67DDC2CFC1DC80049DF82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6B67DE42D02AAD50049DF82 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
 		C6CEF97D2CC1FD84006D9389 /* ActivityLog.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ActivityLog.kt; sourceTree = "<group>"; };
 		C6CEF97E2CC1FD84006D9389 /* City.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = City.kt; sourceTree = "<group>"; };
 		C6CEF97F2CC1FD84006D9389 /* Recording.kt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Recording.kt; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		C60431482CA0A79400F981D5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C6B67DE42D02AAD50049DF82 /* MediaManager.swift */,
 				C62636012CA4F1FE0007967E /* GeocodeManager.swift */,
 				C6D20F1A2C9D109C00553B11 /* RemoteCommandCenterManager.swift */,
 				C6D20F162C9D0C3400553B11 /* NowPlayingManager.swift */,
@@ -520,6 +523,7 @@
 				C6D20F1B2C9D10A000553B11 /* RemoteCommandCenterManager.swift in Sources */,
 				C6562E862C9C8D2000B7B8E5 /* LiveStreamViewController.swift in Sources */,
 				C62636042CA4FA3F0007967E /* ReportedActivity+Extensions.swift in Sources */,
+				C6B67DE52D02AADE0049DF82 /* MediaManager.swift in Sources */,
 				C62635F82CA4EA390007967E /* ActivityViewController+ActivityList.swift in Sources */,
 				C62636022CA4F2060007967E /* GeocodeManager.swift in Sources */,
 				C6EF15D72CA63EE00080FFB8 /* ArchiveViewController.swift in Sources */,
@@ -556,17 +560,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = K9JT8S56CG;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RadioScanner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Columbia City Police Scanner";
+				INFOPLIST_KEY_CFBundleDisplayName = "CC Scanner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -588,17 +592,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = K9JT8S56CG;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RadioScanner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Columbia City Police Scanner";
+				INFOPLIST_KEY_CFBundleDisplayName = "CC Scanner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

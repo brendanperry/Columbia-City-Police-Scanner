@@ -17,7 +17,7 @@ struct NowPlayingManager {
         }
         nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
         
-        if let albumArt = UIImage(named: "nic") {
+        if let albumArt = UIImage(named: "AppIcon") {
             nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: albumArt.size, requestHandler: { imageSize in
                 return albumArt
             })
