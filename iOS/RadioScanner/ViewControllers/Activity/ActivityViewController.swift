@@ -49,7 +49,7 @@ class ActivityViewController: UIViewController {
             filteredReportedActivities.removeAll()
             // TODO: Show the error !! ??
         }
-        noActivitiesFoundText.text = "No reports were found for this day. Please check back later!"
+        noActivitiesFoundText.text = "No reports have been uploaded yet for this day."
         noActivitiesFoundText.isHidden = !reportedActivities.isEmpty
         
         activityCollectionView.reloadData()

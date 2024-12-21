@@ -28,7 +28,7 @@ extension ActivityViewController: UISearchBarDelegate {
         activityCollectionView.reloadData()
         
         if filteredReportedActivities.isEmpty {
-            noActivitiesFoundText.text = "No activities found matching this search. Please clear your search to see all activities for this day."
+            noActivitiesFoundText.text = "No reports found matching this search."
             noActivitiesFoundText.isHidden = false
         } else {
             noActivitiesFoundText.isHidden = true
