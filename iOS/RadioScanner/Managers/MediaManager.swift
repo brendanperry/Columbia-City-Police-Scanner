@@ -9,34 +9,15 @@ import Foundation
 import MobileVLCKit
 import MediaPlayer
 
-actor MediaManagerActor {
+actor MediaManager {
+    public static let shared = MediaManager()
+    nonisolated public let mediaPlayer = VLCMediaPlayer()
+
     var currentUrl: URL?
     var pauseTarget: Any?
     var playTarget: Any?
     var playingLivestream = false
-
-    func setCurrentUrl(_ url: URL?) {
-        currentUrl = url
-    }
     
-    func setPauseTarget(_ target: Any) {
-        pauseTarget = target
-    }
-    
-    func setPlayTarget(_ target: Any) {
-        playTarget = target
-    }
-    
-    func setPlayingLivestream(_ playingLivestream: Bool) {
-        self.playingLivestream = playingLivestream
-    }
-}
-
-struct MediaManager {
-    public static let shared = MediaManager()
-    public let mediaPlayer = VLCMediaPlayer()
-
-    let actor = MediaManagerActor()
     private let remoteCommandCenter = RemoteCommandCenterManager()
     private let nowPlayingManager = NowPlayingManager()
     private let audioSessionManager = AudioSessionManager()
@@ -45,14 +26,14 @@ struct MediaManager {
     
     /// Passing no URL will play the current URL
     public func play(url: URL?, isLivestream: Bool, wasPaused: @escaping () -> Void, wasResumed: @escaping () -> Void) async {
-        let currentUrl = await actor.currentUrl
-        await actor.setPlayingLivestream(isLivestream)
+        playingLivestream = isLivestream
         
         if let url, url != currentUrl {
-            await setNewMedia(url: url, isLivestream: isLivestream, wasPaused: wasPaused, wasResumed: wasResumed)
+            await setNewMedia(url: url, isLivestream: isLivestream, title: "Test", wasPaused: wasPaused, wasResumed: wasResumed)
         }
         
         mediaPlayer.play()
+        nowPlayingManager.setNowPlayingInfoStarted()
     }
     
     public func pause() async {
@@ -62,37 +43,35 @@ struct MediaManager {
     public func stop() async {
         mediaPlayer.stop()
         audioSessionManager.audioStopped()
-        await actor.setCurrentUrl(nil)
-        if let pauseTarget = await actor.pauseTarget, let playTarget = await actor.playTarget {
+        currentUrl = nil
+        if let pauseTarget = pauseTarget, let playTarget = playTarget {
             remoteCommandCenter.removeTargets(pauseTarget: pauseTarget, playTarget: playTarget)
         }
     }
     
-    private func setNewMedia(url: URL, isLivestream: Bool, wasPaused: @escaping () -> Void, wasResumed: @escaping () -> Void) async {
+    private func setNewMedia(url: URL, isLivestream: Bool, title: String, wasPaused: @escaping () -> Void, wasResumed: @escaping () -> Void) async {
         await stop()
         
-        
-        if let pauseTarget = await actor.pauseTarget, let playTarget = await actor.playTarget {
+        if let pauseTarget = pauseTarget, let playTarget = playTarget {
             remoteCommandCenter.removeTargets(pauseTarget: pauseTarget, playTarget: playTarget)
         }
         
-        let playTarget = remoteCommandCenter.addPlayTarget {
+        let playTarget = remoteCommandCenter.addPlayTarget { [weak self] in
             wasResumed()
             Task {
-                await play(url: url, isLivestream: isLivestream, wasPaused: wasPaused, wasResumed: wasResumed)
+                await self?.play(url: url, isLivestream: isLivestream, wasPaused: wasPaused, wasResumed: wasResumed)
             }
         }
         
-        let pauseTarget = remoteCommandCenter.addPauseTarget {
+        let pauseTarget = remoteCommandCenter.addPauseTarget { [weak self] in
             wasPaused()
-            mediaPlayer.pause()
+            self?.mediaPlayer.pause()
         }
         
-        await actor.setPauseTarget(pauseTarget)
-        await actor.setPlayTarget(playTarget)
+        self.pauseTarget = pauseTarget
+        self.playTarget = playTarget
         
         mediaPlayer.media = VLCMedia(url: url)
-        audioSessionManager.setLiveStreamAudio()
-        nowPlayingManager.setNowPlayingInfoForLiveStream()
+        audioSessionManager.setAudioActive()
     }
 }

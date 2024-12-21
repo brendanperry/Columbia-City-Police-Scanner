@@ -13,10 +13,23 @@ import MediaPlayer
 class LiveStreamViewController: UIViewController {
     @IBOutlet weak var playPauseButton: UIButton!
     let mediaManager = MediaManager.shared
+    let nowPlayingManager = NowPlayingManager()
     let url = URL(string: "https://streams.textmeout.com:8443/stream")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Task {
+            let isPlaying = await mediaManager.playingLivestream
+            
+            if isPlaying {
+                playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            } else {
+                playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            }
+        }
     }
 
     @IBAction func playPauseButtonPress(_ sender: Any) {
@@ -36,6 +49,8 @@ class LiveStreamViewController: UIViewController {
     
     private func playLiveStream() async {
         playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        nowPlayingManager.set(duration: nil)
+        nowPlayingManager.set(title: "Whitley County Emergency Radio Livestream")
         await mediaManager.play(url: url, isLivestream: true, wasPaused: { [weak self] in
             self?.playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         }, wasResumed: { [weak self] in

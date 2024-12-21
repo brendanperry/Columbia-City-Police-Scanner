@@ -9,7 +9,7 @@ import AVKit
 struct AudioSessionManager {
     let session = AVAudioSession.sharedInstance()
     
-    func setLiveStreamAudio() {
+    func setAudioActive() {
         try? session.setCategory(.playback,
                                  mode: .default,
                                  policy: .longFormAudio)

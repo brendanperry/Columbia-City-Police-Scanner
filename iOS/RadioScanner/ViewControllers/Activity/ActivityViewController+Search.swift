@@ -25,4 +25,8 @@ extension ActivityViewController: UISearchBarDelegate {
         }
         activityCollectionView.reloadData()
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(false)
+    }
 }

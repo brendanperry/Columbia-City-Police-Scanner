@@ -84,7 +84,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search activity logs" translatesAutoresizingMaskIntoConstraints="NO" id="9t1-ay-b3a">
                                 <rect key="frame" x="0.0" y="20" width="225" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="H4o-sK-c4y" id="Atg-DS-7GD"/>
                                 </connections>
@@ -98,12 +98,6 @@
                                     <action selector="dateChanged:" destination="H4o-sK-c4y" eventType="valueChanged" id="9fN-oA-Iak"/>
                                 </connections>
                             </datePicker>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reports were found for this day. Please check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Fl-Dqe">
-                                <rect key="frame" x="25" y="327" width="325" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-t0-7kr">
                                 <rect key="frame" x="0.0" y="76" width="375" height="542"/>
                                 <subviews>
@@ -215,6 +209,12 @@
                                     <constraint firstItem="7Ul-1m-a2N" firstAttribute="leading" secondItem="Nuk-t0-7kr" secondAttribute="leading" id="ycs-68-EgU"/>
                                 </constraints>
                             </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reports were found for this day. Please check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Fl-Dqe">
+                                <rect key="frame" x="25" y="327" width="325" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBs-Qy-Coc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

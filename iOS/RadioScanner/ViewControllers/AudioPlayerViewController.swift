@@ -20,6 +20,7 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     @IBOutlet weak var audioTitle: UILabel!
     
     let mediaManager = MediaManager.shared
+    let nowPlayingManager = NowPlayingManager()
     
     var selectedMedia: URL?
     var recording: Recording?
@@ -27,7 +28,8 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     func mediaPlayerTimeChanged(_ aNotification: Notification!) {
         currentTime.text = mediaManager.mediaPlayer.time.stringValue
         maxTime.text = mediaManager.mediaPlayer.media.length.stringValue
-        
+        nowPlayingManager.set(duration: mediaManager.mediaPlayer.media.length.value.intValue / 1000)
+
         timelineSlider.setValue(mediaManager.mediaPlayer.position, animated: true)
     }
     
@@ -44,10 +46,12 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
             audioTitle.text = activity.nature + " at " + activity.displayTime()
             locationLabel.text = activity.address ?? ""
             timeLabel.text = recording.title
+            nowPlayingManager.set(title: audioTitle.text ?? "")
         } else {
             audioTitle.text = ""
             locationLabel.text = ""
             timeLabel.text = recording.title
+            nowPlayingManager.set(title: recording.title)
         }
         
         let totalMinutes = recording.endTime.minute - recording.startTime.minute
