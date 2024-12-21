@@ -115,6 +115,13 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <label key="backgroundView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reports were found for this day. Please check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IeZ-Fl-Dqe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="activityCell" id="Ep2-dg-4rL" customClass="ActivityCollectionViewCell" customModule="RadioScanner" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -209,25 +216,16 @@
                                     <constraint firstItem="7Ul-1m-a2N" firstAttribute="leading" secondItem="Nuk-t0-7kr" secondAttribute="leading" id="ycs-68-EgU"/>
                                 </constraints>
                             </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reports were found for this day. Please check back later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Fl-Dqe">
-                                <rect key="frame" x="25" y="327" width="325" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBs-Qy-Coc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="IeZ-Fl-Dqe" secondAttribute="trailing" constant="25" id="4L5-wA-qeU"/>
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="lTB-Dw-Eql" secondAttribute="trailing" id="EWK-P3-4xY"/>
                             <constraint firstItem="nBs-Qy-Coc" firstAttribute="trailing" secondItem="9t1-ay-b3a" secondAttribute="trailing" constant="150" id="PJk-Na-9c9"/>
                             <constraint firstAttribute="bottom" secondItem="Nuk-t0-7kr" secondAttribute="bottom" id="TVY-So-8Xh"/>
                             <constraint firstItem="9t1-ay-b3a" firstAttribute="top" secondItem="OiB-YK-74R" secondAttribute="topMargin" id="TYK-QA-Tks"/>
                             <constraint firstItem="Nuk-t0-7kr" firstAttribute="top" secondItem="9t1-ay-b3a" secondAttribute="bottom" id="Tzv-yk-6Ig"/>
-                            <constraint firstItem="nBs-Qy-Coc" firstAttribute="bottom" secondItem="IeZ-Fl-Dqe" secondAttribute="bottom" constant="250" id="Wf6-DE-wqF"/>
                             <constraint firstItem="9t1-ay-b3a" firstAttribute="leading" secondItem="Nuk-t0-7kr" secondAttribute="leading" id="dE2-Rb-Zh6"/>
-                            <constraint firstItem="IeZ-Fl-Dqe" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" constant="25" id="htX-Cj-6du"/>
                             <constraint firstItem="Nuk-t0-7kr" firstAttribute="leading" secondItem="nBs-Qy-Coc" secondAttribute="leading" id="jlN-ti-132"/>
                             <constraint firstItem="lTB-Dw-Eql" firstAttribute="top" secondItem="9t1-ay-b3a" secondAttribute="top" id="rRy-7F-I7S"/>
                             <constraint firstItem="Nuk-t0-7kr" firstAttribute="trailing" secondItem="nBs-Qy-Coc" secondAttribute="trailing" id="sZc-D1-AmP"/>
