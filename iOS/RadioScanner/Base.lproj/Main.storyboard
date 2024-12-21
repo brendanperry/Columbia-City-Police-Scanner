@@ -233,8 +233,8 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Police Activity" id="Oj9-oP-Htr" userLabel="Activity">
-                        <imageReference key="image" image="document" catalog="system" symbolScale="large"/>
-                        <imageReference key="selectedImage" image="document.fill" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="newspaper" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="newspaper.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="activityCollectionView" destination="kXF-c8-WA9" id="4ph-WQ-rQY"/>
@@ -489,9 +489,9 @@
         <image name="archivebox.fill" catalog="system" width="128" height="107"/>
         <image name="bolt.fill" catalog="system" width="100" height="128"/>
         <image name="car" catalog="system" width="128" height="95"/>
-        <image name="document" catalog="system" width="115" height="128"/>
-        <image name="document.fill" catalog="system" width="115" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="newspaper.fill" catalog="system" width="128" height="112"/>
         <image name="play" width="24" height="24"/>
         <image name="play.circle" catalog="system" width="128" height="123"/>
         <image name="radio" catalog="system" width="128" height="115"/>
