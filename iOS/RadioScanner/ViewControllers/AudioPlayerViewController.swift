@@ -24,8 +24,14 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     
     var selectedMedia: URL?
     var recording: Recording?
+    var position: Float?
+    var hasPositionBeenUpdated = false
     
     func mediaPlayerTimeChanged(_ aNotification: Notification!) {
+        if hasPositionBeenUpdated == false {
+            updatePosition()
+        }
+        
         currentTime.text = mediaManager.mediaPlayer.time.stringValue
         maxTime.text = mediaManager.mediaPlayer.media.length.stringValue
         nowPlayingManager.set(duration: mediaManager.mediaPlayer.media.length.value.intValue / 1000)
@@ -37,6 +43,12 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         super.viewDidLoad()
 
         mediaManager.mediaPlayer.delegate = self
+    }
+    
+    private func updatePosition() {
+        mediaManager.mediaPlayer.position = position ?? 0.0
+        position = nil
+        hasPositionBeenUpdated = true
     }
     
     func setRecording(recording: Recording, for activity: ReportedActivity?) {
@@ -57,21 +69,21 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         let totalMinutes = recording.endTime.minute - recording.startTime.minute
         let placement = Float((activity?.dateTime.minute ?? 0 - 2) - recording.startTime.minute) / Float(totalMinutes + 1)
         
-        let media = updateMedia(placement: max(0, placement))
+        position = placement
+        
+        let media = updateMedia()
         
         Task {
             await playAudio(withPosition: !silenceRemovedToggle.isOn ? placement : 0, url: media)
         }
     }
     
-    func updateMedia(placement: Float?) -> URL? {
+    func updateMedia() -> URL? {
         guard let recording else { return nil }
         var resource = "https://scanwc.com/assets/php/archives/archive_download.php?id=\(recording.id)"
         
         if silenceRemovedToggle.isOn {
             resource += "&rs=yes"
-        } else {
-            mediaManager.mediaPlayer.position = placement ?? 0.0
         }
         
         guard let url = URL(string: resource) else { return nil }
@@ -105,7 +117,7 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
     
     @IBAction func switchChanged(_ sender: UISwitch) {
         Task {
-            let url = updateMedia(placement: nil)
+            let url = updateMedia()
             await playAudio(withPosition: nil, url: url)
         }
     }
@@ -116,10 +128,6 @@ class AudioPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
         }, wasResumed: { [weak self] in
             self?.playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         })
-        
-        if let position {
-            mediaManager.mediaPlayer.position = position
-        }
 
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
     }
