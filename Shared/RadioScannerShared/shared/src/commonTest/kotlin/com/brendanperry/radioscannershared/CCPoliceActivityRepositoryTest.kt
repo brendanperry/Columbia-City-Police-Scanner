@@ -20,4 +20,20 @@ class CCPoliceActivityRepositoryTest {
             log?.reportedActivity?.count() == 52
         }
     }
+
+    @Test
+    fun test2BuildingLogFromPdfString() {
+        val repository = CCPoliceActivityRepository()
+
+        val log = repository.readPdfStringData(
+            "Reported Nature Incident address\n00:00:00 12/18/24 Vac Home Check\n00:28:34 12/18/24 Traffic Stop E US 30 EB & E SR 205\n00:47:59 12/18/24 Traffic Stop E US 30 EB & E SR 205\n00:58:54 12/18/24 Traffic Stop E US 30 EB & E 100 S\n02:14:17 12/18/24 Traffic Stop W US 30 EB & N WOLF RD\n02:22:32 12/18/24 Traffic Stop W US 30 EB & N 300 W\n03:33:57 12/18/24 Ast Anoth Agcy W US 30 EB & N WILSON LAKE RD\n06:12:20 12/18/24 Veh Crash LvScn 10XX E US 30\n07:20:01 12/18/24 SRO Activity 52XX N SR 109\n07:25:56 12/18/24 SRO Activity 16XX S SR 9\n07:36:32 12/18/24 SRO Activity 16XX S SR 9\n08:06:14 12/18/24 SRO Activity 16XX S SR 9\n08:32:57 12/18/24 SRO Activity 7XX E JACKSON ST\n09:08:39 12/18/24 SRO Activity 22XX S 500 E\n10:25:32 12/18/24 SRO Activity 16XX S SR 9\n10:28:47 12/18/24 Citizen Assist 5XX E BUSINESS 30\n10:32:57 12/18/24 Burglary 6XX W BUSINESS 30\n10:38:58 12/18/24 SRO Activity 16XX S SR 9\n11:07:31 12/18/24 SRO Activity 3XX N WASHINGTON ST\n11:23:14 12/18/24 SRO Activity 16XX S SR 9\n11:40:24 12/18/24 SRO Activity 16XX S SR 9\n11:48:37 12/18/24 Citizen Assist 5XX N PINECREST DR\n12:32:08 12/18/24 SRO Activity 16XX S SR 9\n13:33:28 12/18/24 Insp - VIN 10XX W GREEN MEADOW RUN\n13:34:28 12/18/24 SRO Activity 16XX S SR 9\n14:00:55 12/18/24 SRO Activity 17XX S SR 9\n14:02:39 12/18/24 SRO Activity 16XX S SR 9\n14:09:24 12/18/24 Traffic Stop E VAN BUREN ST & N MADISON ST\n14:15:23 12/18/24 Traffic Stop E VAN BUREN ST & N MARSHALL AVE\n14:26:22 12/18/24 Animal Danger 2XX S ELM ST\n14:28:25 12/18/24 Traffic Stop E VAN BUREN ST & N ROLLING HILLS AVE\n14:30:21 12/18/24 Citizen Assist 1XX S CHAUNCEY ST\n14:38:31 12/18/24 SRO Activity 16XX S SR 9\n14:50:38 12/18/24 Ast Traffic Stp E US 30 EB & E SR 205\n15:15:36 12/18/24 Traffic Stop W NORTH ST & N PINECREST DR\n15:23:13 12/18/24 Traffic Stop 2XX W FRONTAGE RD\n15:27:19 12/18/24 Traffic Stop N MAIN ST & E COUNTRYSIDE DR\n15:33:21 12/18/24 Foot Ptrl Busn\n15:50:01 12/18/24 Traffic Stop N MAIN ST & E JEFFERSON ST\n15:59:34 12/18/24 Assault 4XX N LINE ST\n16:07:54 12/18/24 Assault 4XX N PARK TERRACE BLVD\n17:29:04 12/18/24 Suspicious 4XX W PLAZA DR\n17:32:08 12/18/24 Vehicle Lockout 5XX N MAIN ST\n17:42:04 12/18/24 Veh Crash LvScn 4XX W PLAZA DR\n19:02:59 12/18/24 Traffic Stop W FRONTAGE RD & N LINE ST\n19:06:46 12/18/24 Traffic Stop 1XX N HOOSIER DR\n19:31:12 12/18/24 Traffic Stop E US 30 EB & E 100 S\n19:39:16 12/18/24 Traffic Stop W US 30 EB & W LINCOLNWAY RD\n19:53:32 12/18/24 Traffic Stop W US 30 EB & N ARMSTRONG DR\n19:58:22 12/18/24 Traffic Stop W LINCOLNWAY RD & W DEPOY DR\n20:05:30 12/18/24 Citizen Assist XX W DIPLOMAT DR\n20:34:44 12/18/24 Traffic Stop 3XX W PLAZA DR\n20:36:14 12/18/24 Traffic Stop N MAIN ST & E NORTH ST\n20:41:40 12/18/24 Traffic Stop 4XX W PLAZA DR\n20:48:46 12/18/24 Driving Comp E US 30 EB & N MAIN ST\n21:03:11 12/18/24 Traffic Stop N LINE ST & W FRONTAGE RD\n21:55:11 12/18/24 Welfare Check 3XX N CHAUNCEY ST\n22:35:49 12/18/24 Traffic Stop 22:49:12 12/18/24 Traffic Stop 22:59:06 12/18/24 Foot Ptrl Busn\n23:01:36 12/18/24 Traffic Stop 23:38:57 12/18/24 Traffic Stop 23:56:53 12/18/24 Ast Traffic Stp E US 30 EB & N MAIN ST\nE US 30 EB & E SR 205\nW US 30 EB & N WOLF RD\nE US 30 EB & S 300 E\nE US 30 EB & E SR 205",
+            1,
+            1,
+            24
+        )
+
+        assertTrue {
+            log?.reportedActivity?.count() == 52
+        }
+    }
 }

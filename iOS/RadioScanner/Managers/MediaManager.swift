@@ -49,6 +49,11 @@ actor MediaManager {
         }
     }
     
+    public func removeMedia() async {
+        await stop()
+        mediaPlayer.media = nil
+    }
+    
     private func setNewMedia(url: URL, isLivestream: Bool, title: String, wasPaused: @escaping () -> Void, wasResumed: @escaping () -> Void) async {
         await stop()
         

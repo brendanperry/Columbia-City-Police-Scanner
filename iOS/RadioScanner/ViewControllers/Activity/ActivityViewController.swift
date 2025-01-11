@@ -37,8 +37,9 @@ class ActivityViewController: UIViewController {
     
     func updateData(day: Int, month: Int, year: Int) async {
         do {
-            // TODO: Handle null? throw error instead?
-            guard let log = try await activityRepository.getActivityLogFor(day: day, month: month, year: year) else { return }
+            guard let log = try await activityRepository.getActivityLogFor(day: day, month: month, year: year) else {
+                throw NSError(domain: "No log found", code: 404)
+            }
             
             searchBar.text = ""
             reportedActivities = log.reportedActivity
@@ -47,6 +48,7 @@ class ActivityViewController: UIViewController {
             print(error.localizedDescription)
             reportedActivities.removeAll()
             filteredReportedActivities.removeAll()
+            clearPlacemarksFromMap()
             // TODO: Show the error !! ??
         }
         noActivitiesFoundText.text = "No reports have been uploaded yet for this day."
@@ -93,6 +95,9 @@ class ActivityViewController: UIViewController {
                     
                     if recordingList.isEmpty {
                         audioPlayerViewController.audioTitle.text = "No recording found"
+                        Task {
+                            await MediaManager.shared.removeMedia()
+                        }
                     }
                     
                     for recording in recordingList {
