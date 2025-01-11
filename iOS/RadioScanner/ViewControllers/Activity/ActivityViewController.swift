@@ -91,6 +91,10 @@ class ActivityViewController: UIViewController {
                     
                     let recordingList = recordings.toArray()
                     
+                    if recordingList.isEmpty {
+                        audioPlayerViewController.audioTitle.text = "No recording found"
+                    }
+                    
                     for recording in recordingList {
                         if recording.startTime.minute <= selectedActivity.dateTime.minute && recording.endTime.minute >= selectedActivity.dateTime.minute {
                             audioPlayerViewController.loadViewIfNeeded()
